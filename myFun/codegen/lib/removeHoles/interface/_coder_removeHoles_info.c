@@ -1,0 +1,113 @@
+/*
+ * File: _coder_removeHoles_info.c
+ *
+ * MATLAB Coder version            : 3.2
+ * C/C++ source code generated on  : 01-Dec-2017 14:55:34
+ */
+
+/* Include Files */
+#include "_coder_removeHoles_info.h"
+
+/* Function Definitions */
+
+/*
+ * Arguments    : void
+ * Return Type  : const mxArray *
+ */
+const mxArray *emlrtMexFcnResolvedFunctionsInfo()
+{
+  const mxArray *nameCaptureInfo;
+  const char * data[28] = {
+    "789ced5dcd8be3c815d7646727bb84dd6cbeb390afc9212c0cb4ddedb6dbce61197f7f7fb5ed6eb7671723cb25b9da92ca96e4af3ef521b0030964d925647348"
+    "4e09ec31904036ff402e2190850de4127209841cf2270422f9a3db53a399724bb2ac69c960ba9fed57f5ded3fbe955bd7a55a2ee648b94fa7a5d7d7ffc578aba",
+    "a7fe7d457d7f8e5abc5e5ed277d4f7dbcbbf8bcfef52af2de99faa6f06890a982a8b2f455a00d4ead54502146951a9cf068092808cf831e8cebf61210fea5000"
+    "05b44664a04a08a9b5afae08ed2bedff780f30fdda48a0a49e7cd50dc5af13737da6d4b53e7775f449ace9f3c6927e947cd7d7908124fb38488b022d31881eab",
+    "242d225f02312301888aec2b46eb8568cc274b8c4f98a546a24f02021a830ce281bc27acfa0f13fabf87f5afd123110e47c0387f178d3afc92ff92c09fc5f835"
+    "fa51b6d0544d101d0c78c8d00a44e24adbf6f1817f3fd4d9a307039f8210df41531f10781f0f3b3e815678bae34303d9b7506061041d3bdcd391e3ce9a1caf2e",
+    "3f57a5ffe0271fff2d6a9cdf6cffd6f167a8e75f87af534f5e078d464c3a3daa36b871b009a29dd9c571ab5702e9457b6fadb57747a73d6aedaf91df5f12e4b5"
+    "cb6f2a0439be8bc9a1d10cea02690faa372349a4f93d28c7469057b2624945ae04194b70f53e81ff0ce33f33641fedfd60ae8eefc14a1f1fae8f0538a37efffa",
+    "5f3e732dce123cdca7c3092e75d8898cc2ddb2288462958c3d387b4c90f7149357a32dc3d9fdc53fed3160142419b61f863719494ab63bb5277e5530fe8a21fb"
+    "e8e26ca9c79e60c22f5ffdf3fbee885f5fc3ae8346b352aa7826abd7f222313969445321104139ca19f1cb2ebf21d9ed9b981c1a8de149bdc973406bd40a3c91",
+    "ee37c718ffb17576b9d26315b04c8c0bdffaf76fdc812bbdfbad944d269b29004247d2c1302c8d47d1567890b40757a471cfbb98bc1a6dbdffdc17e83e68c309"
+    "92fa3ad7414fae9731b9341aca129a6c781dbe81f16b343ece14bb609a15958dee3f39acbd9c213badc575c0abfff8e62a99c717f58ff75c3cef3a4a34a57376",
+    "ca27ca133fec36d10c8053daa6f1e02541de5df88d9e1caf6072683494d5a62438dd059e8a587b45abecb250696e1a13f1ea5337e36910084807fc98aff65a62"
+    "ef4c96bb3c370ca69c31bfb27bbc43ca677c079347a3d5d6db6aab6d16493c4283361a0389e5d1a4cd6849d045bbfee7b4bb7aadb7bb92e723823c34c6471bb2",
+    "cf3aae16e67a8e4256e40d7f1e7bd3bd7843f1e9b0ca165bd19e841252b2a09c4e8aadb83d78fb8420ef7b98bc1abd757fbafffc1fb47b801f008988a33bcbcf"
+    "aee5bfabc63c166e23de91d62dd2587b69c37664e11474074815c3a729a3a2cf84dffecccdb8ab1cd4fd179599d89c0ecf03b35ce6bc5eebb46c1a37eeda5f1e",
+    "12fa7f0deb5fa3a12c2e32d88ab62c488e637af8637ab4645fbee729fdd71430952774356ed281feac36e4201fafc7fbc7c31857ef3792092f5e6d12af8ce403"
+    "d596057aba5dbce5b17ef3a6edb6988fcd455f8e104df8ababc787fc34d402fef3b2bf0163fefae4629f3ee4ed5aef722bdea0f8c2e20d8a1edeaef88de02d98",
+    "2df607fd12982a99628daba4f395b49f8fb933ff41b29fde3aa2cefa722149d9b3be5cc6f8cbd6d967a187a9f9d6a5f81f17af83cd06156656ea055045894746"
+    "b9742ccd259b36e18a94370398bc1a6db1dfcca39646b469990162178a5c9b5fcda348f6fc2a269f46633893008f062b7d1f12dafb22d69e46b32391d1b46cf7",
+    "68b1ab4ab609de4a583b25ebec36d747bb1799f0d70fdd1cc7fad57d7f695249d55283fdd6452bc65e0459cea6799ad3f1666cfd59a4c50df9cdc6b1adad1baa"
+    "2a58b0deeceaf1212b6443b14828acf432ada09fee65c235a99cbae5ebcd98df7875be5e9defb671e6e43a5fa7cdc3be84c9a3d15afc13142800799511b96ecf",
+    "e8fa33c92e758caf6ec82e58fdf3538ae8efd7b9c13cecb3dffdd1bdf1abc5e5d928bc48820a974846aa4235e797d336ed53218d0b3b98bc1abd0dffb9cf2041"
+    "50a73af384a17c2ddfb6e21ae93add74bdd98b73b7078fbb8c736ec5a337cef4f0e704fc91c6534edb4fb6419c92199aa7a5246709ce48f6a962fc5543f6d1cf",
+    "232df5b0025f6ffcbdecdef166399d8e0f0fcb3599df3f3d1d86ba1d1956a14df58d4ef39f87047936adbb7a31f6697af557dbc0d32eebaf9c862763fb5e58a8"
+    "46c39e1d38b2aece03abe3d414305fe7e11a1ce9d5298c872039183372a439092054916bfb81b316650f8e76387fb8c6d17d164ab2c2c235b98cd6d39bc5d1ae",
+    "eba13dfcdc3c0eedb27ede69f3266f9f98b74f6cdb78dbe53e3152bc6a61f26ab4757863d048752b11892c14a102d6f283c6ea38a0c86ec86f76fcb7b5f57855"
+    "05af8ee39adf089e2ed2015408b4b28c988f1d148bd346a4705875c8796d76f98d975ff7f2ebb739bfeed4b845b2e306e74ccdd7832bfc48b623cfbec57a972b",
+    "3d2c88676fff4f762fce32b54cb3590b944f95345dee9f67f3452e38b1299e391567a4f8f626269746ebe1ac08c5d1eaac623bf056c3f86b86ecf56cbccdf531"
+    "9f3f7435dece85602c199b555b4018f3ca2128a50291914dfb599c8a37afaede9b8f19c5d32eebea9d8aa76dc52fd2f5b9693da217cfae5f4ee07fd1e219c97f",
+    "9c560775d3f999dd78f3e66bcec7db2ee76bb71d6f5e3e64fef2f0e5e1cb707d0c5ed74bb32039a4ec99a76df31c8fb91ee6ea3e5c7daec079e7b8d2e20ab10c"
+    "689c0765e66402d959d1a679da25415ebbfcc6ab93ba91bf7975523baa93ba24c8eb14bcbcf4841c2f517447b624ce90f092c1f83386f47f221fc88e449f2abe",
+    "99faf6cb8f1ffec0bd7819763a5df670d029d72b35a98af6d369be7068531e62d7fee2d56378f518b7b91ec3e9f8da209fbea89fdfd322d4b55ece3e4f431757"
+    "0f168a2c6cb392c760bc9afde987ee8d57e7c17495eb564fb29154693f72d2a90639b662535deeaef1d424f4ff7dac7f8dc6f0a476c6cf6a735f4c2d4f20bcd6",
+    "ef21a1fd4dcf3124c5af77b076de3164275d9ce9e8671a6ff23f03eec09b5e5eeaacca66f60fd2e1586678448f8aa5be72c4752867ac13efca8fb615d7b69d47"
+    "f7e29bb3f0e6b4f8764990771779e24df7190b52178e6117d8912fb7fc3c796d3d61a5c0dee0ea7a18c4cf1f7ef9af9de2e71756e51f8de06712389166a55283",
+    "e9a36854e26aa358b87bea10fcecc26ff4e4f83c2687462f5b7931eb02353baccc60fef9c91fdeabba23fee88df7c2932adb681e868e3263fe389208870ba8c1"
+    "50cec08f5d7ee3e505bdbce06dce0b5e12e4750acebe87c9a1d13af328301dc49130508552916207ceaca94f7ee679214fe863415d92abeb273ad3b3d2314bf7",
+    "4faac57c29770c949abf567619ce4876fb322687466338531bbd6e6fdbe3c302c65f3064175d7ca97a98ce4ffcd82de3433d3c151b8aff2c7b1a15c5c631acc8"
+    "d51227d7874967e0c9a9f51560f0c2d65768fbad54f14d9d1ff8eb61c2bd7819a7020c3a9dd6d91a13af437e5c81b3682e716bd7ab9ef017d2f8eedb58ff1a8d",
+    "c51d81161528cb745bec4045a6c8ebbf77a8a7eb0157cf897c4ce0b3a64e58ff39134fe861eeb9761fb8793c179a344327e55604491787c7e3422923cbb98043"
+    "ceb7b5db7f2c58876279442b45f5337e4dcf6de16b8bfb12aff530bd2fd1ddf81a8703874720972fb38988d23aa28f0b7128d8345fda75bc7a48e8ff0b58ff1a",
+    "ad1dc327019a9f3fc49832871fa3f9bd8a49030c2438a615e05bd3c58afc9eabf7d733a1a0c0cb05313f1d87cfe9dc492a1bacd88523a7fa9117afbc78e5c52b"
+    "ebe215c95e7acf315ec366bb0b44240934bfd2c7288e3e22f03debb9465bb8df5ce9e49d0f73cd4ff213bd75e07d29914cc847c1f3fca912e5729944b9c98e29",
+    "7b70e5747ff2e29817c7bc38665d1cf3f62bde0827de7e45f7ec577ce6facba675b1da7672ed98333bd66d8b187fd11afd572acc238c379e33869b3c1ff2c76b"
+    "b0c082935a73e4ef82412b35b129be5c12e4b5cb6fbcba3eafae6fdb3873725ddf2eeecf7a72bc8cc9a1d1de7342bc38e5f4e784381b3fdeb9ce1e7e767baef3",
+    "aee747247b6d50e7ba001145cec7ad5eebedadf82e09726cb1bef50a4126fcefeeaf0aee18bfe9e5bd2311b9cbe46b289a3b081c9eb6620ad70f352967c41fa7"
+    "ecbff5c66f5efc71e2f8ed31415ea73da7d47b1e8e293f75f579cbdef30336c7d9b7307934fa19e7fd1f031e0d567a1a1dff91d6af698c8fbeb17de41e2d81ae",
+    "6f81ae25c674a1b652c98ae7017fea17dd1bd70a8554fc285a94726c4190854aaf176dee5fd884b74f08f2fe089357a3b7ee4ff7e74bff6d86a765b9cd2051a1"
+    "a128b7573f8a6b1fafe4f7ea25bc7a09abf1b8cb7a89df12e49d61f26af4f6f108e5b60c3911749f06a1ce75da74dca876372f6d3783b74b029fe5e7e22ce773",
+    "73d1cd8f335d3d9f0b668bfd41bf04a64aa658e32ae97c25ede71d526f91c0e4d5e847aad3346420c93e0ed2a2404b0ca2c72a498bc89740cc4800a2b2f2249f"
+    "2c313e61961a893e0908680c3288076be7d791ecb5c1733c7820724a8fda6e3e718b79a185fce6f62b7ee5bf79f7e2878933ad6e355ecd36cee030a18c238d60",
+    "ac61433efeff0abc152b", "" };
+
+  nameCaptureInfo = NULL;
+  emlrtNameCaptureMxArrayR2016a(data, 53432U, &nameCaptureInfo);
+  return nameCaptureInfo;
+}
+
+/*
+ * Arguments    : void
+ * Return Type  : mxArray *
+ */
+mxArray *emlrtMexFcnProperties()
+{
+  mxArray *xResult;
+  mxArray *xEntryPoints;
+  const char * fldNames[4] = { "Name", "NumberOfInputs", "NumberOfOutputs",
+    "ConstantInputs" };
+
+  mxArray *xInputs;
+  const char * b_fldNames[4] = { "Version", "ResolvedFunctions", "EntryPoints",
+    "CoverageInfo" };
+
+  xEntryPoints = emlrtCreateStructMatrix(1, 1, 4, fldNames);
+  xInputs = emlrtCreateLogicalMatrix(1, 1);
+  emlrtSetField(xEntryPoints, 0, "Name", mxCreateString("removeHoles"));
+  emlrtSetField(xEntryPoints, 0, "NumberOfInputs", mxCreateDoubleScalar(1.0));
+  emlrtSetField(xEntryPoints, 0, "NumberOfOutputs", mxCreateDoubleScalar(1.0));
+  emlrtSetField(xEntryPoints, 0, "ConstantInputs", xInputs);
+  xResult = emlrtCreateStructMatrix(1, 1, 4, b_fldNames);
+  emlrtSetField(xResult, 0, "Version", mxCreateString("9.1.0.441655 (R2016b)"));
+  emlrtSetField(xResult, 0, "ResolvedFunctions", (mxArray *)
+                emlrtMexFcnResolvedFunctionsInfo());
+  emlrtSetField(xResult, 0, "EntryPoints", xEntryPoints);
+  return xResult;
+}
+
+/*
+ * File trailer for _coder_removeHoles_info.c
+ *
+ * [EOF]
+ */
