@@ -19,3 +19,9 @@ This function performs PCA in each cluster listed in `clusters`.
 ```matlab
 [eigvec, u_scores, eigenvalues, centroids, gamma, eps_rec] = lpca(clusters, cent_crit, scal_crit, is_cpca, idx, cpca_options)
 ```
+
+## Recover original data from low-dimensional representations in each cluster
+
+```matlab
+recovered_data = recoverLpca()
+```
