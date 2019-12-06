@@ -1,30 +1,36 @@
-function [clusters, centroids] = get_clusters(X, idx, is_rows)
-%% Description
-% INPUT
-% X: data-matrix (observations x variables).
-% idx: vector of cluster assignments.
-% [optional] is_rows: TRUE if idx is meant for the rows of X, FALSE
-%                     otherwise.
-% OUTPUT
-% clusters: cell-array of clusters of X
+function [clusters] = get_clusters(X, idx)
+% This functions returns a cell array of data set divided into clusters.
+%
+% Input:
+% ------------
+% - X
+%     the raw data set.
+%
+% - idx
+%     a vector specifying division to clusters.
+%
+% Output:
+% ------------
+% - clusters
+%     a cell array containing the original data set X divided into clusters.
+%     Each cell is linked to a particular cluster and contains all original data set observations in that cluster.
 
-%% Inputs
-if nargin < 3
-    is_rows = true;
+%% get_clusters()
+% Checks:
+[n_obs, n_vars] = size(X);
+if n_obs ~= length(idx)
+  error('The number of observations in the dataset X must match the number of elements in idx vector.')
 end
-%% Main
-n_clust = numel(unique(idx)); % Number of clusters
-clusters = cell(n_clust, 1); % Initialize cell-array
-if is_rows
-    % Clusters are along the rows of the data-matrix
-    for ii = 1 : n_clust
-        clusters{ii} = X(idx == ii, :);
-    end
-    centroids = get_centroids(X, idx);
-else
-    % Clusters are along the columns of the data-matrix
-    for ii = 1 : n_clust
-        clusters{ii} = X(:, idx == ii);
-    end
+
+% Find the number of clusters:
+k = numel(unique(idx));
+
+% Initialize the clusters cell array:
+clusters = cell(k, 1);
+
+% Divide the data set into clusters:
+for ii = 1 : k
+    clusters{ii} = X(idx == ii, :);
 end
+
 end
