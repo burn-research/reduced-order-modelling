@@ -37,3 +37,16 @@ A visualisation of the partitioning according to this method:
 ![Screenshot](dwgs/idx_mixture_fraction_bins.png)
 
 ### K-Means
+
+
+### `get_centroids`
+
+This functions returns a matrix of centroids of every cluster. Centroids are computed as the mean of all the observations of a specific variable in a particular cluster.
+
+### `get_clusters`
+
+This functions returns a cell array of data set divided into clusters.
+
+### `get_cluster_populations`
+
+This functions returns a vector whose each entry is a number of observations in each cluster.
