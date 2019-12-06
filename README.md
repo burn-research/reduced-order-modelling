@@ -16,6 +16,16 @@ This is a library of Matlab functions for performing Reduced-Order Modelling (RO
 
 `unscale()`
 
+### Clustering
+
+`get_centroids()`
+
+`get_clusters()`
+
+`get_cluster_populations()`
+
+`idx_mixture_fraction_bins()`
+
 ### Principal Component Analysis (PCA)
 
 #### Local PCA (LPCA, VQPCA)
