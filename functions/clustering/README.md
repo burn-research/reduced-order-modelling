@@ -1,4 +1,4 @@
-# Clustering
+# Data clustering
 
 #### Functions starting with the `idx_` prefix
 
@@ -26,7 +26,7 @@ Use the function `idx_mixture_fraction_bins()` to partition the data into `k` cl
 
 #### Related functions
 
-In order to plot the visualisation of the clustering technique, use the function from the `plotting` repository:
+In order to plot the visualisation of this clustering technique, use the function [`plot_mixture_fraction_divided_to_clusters`](https://github.com/burn-research/plotting/blob/master/plot_mixture_fraction/plot_mixture_fraction_divided_to_clusters.m) from the [`plotting`](https://github.com/burn-research/plotting) repository:
 
 ```matlab
 plot_mixture_fraction_divided_to_clusters(data, Z, idx, np, destination)
