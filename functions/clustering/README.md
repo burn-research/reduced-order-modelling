@@ -10,10 +10,6 @@ idx = [1,1,1,1,2,2,2,2,2,3,3,3,3,3]
 
 The above vector has the following interpretation: the first four observations belong to cluster 1, the following five observations belong to cluster 2 and the last five observations belong to cluster 3.
 
-#### Helper functions
-
-This is a collection of functions that do auxiliary tasks in clustering.
-
 ## Function descriptions
 
 ### Bins of mixture fraction
@@ -38,15 +34,32 @@ A visualisation of the partitioning according to this method:
 
 ### K-Means
 
+# Helper functions
+
+This is a collection of functions that do auxiliary tasks in clustering.
+
+## Function descriptions
 
 ### `get_centroids`
 
 This functions returns a matrix of centroids of every cluster. Centroids are computed as the mean of all the observations of a specific variable in a particular cluster.
 
+```matlab
+[centroids] = get_centroids(X, idx)
+```
+
 ### `get_clusters`
 
 This functions returns a cell array of data set divided into clusters.
 
+```matlab
+[clusters] = get_clusters(X, idx)
+```
+
 ### `get_cluster_populations`
 
 This functions returns a vector whose each entry is a number of observations in each cluster.
+
+```matlab
+[populations] = get_cluster_populations(idx)
+```
