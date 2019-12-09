@@ -122,11 +122,9 @@ for j = 1:1:k
         rec_err_os = (clusters{j} - C_mat) - (clusters{j} - C_mat) * D^-1 * eigvec{j} * eigvec{j}' * D; % Get error
         sq_rec_err(idx == j, :) = sum(rec_err_os.^2, 2);
 
-    end
-end
+        eps_rec = mean(sq_rec_err);
 
-if ~isempty(idx)
-    eps_rec = mean(sq_rec_err);
+    end
 end
 
 end
