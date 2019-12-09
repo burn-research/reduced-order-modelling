@@ -1,4 +1,4 @@
-function [eigvec, u_scores, eigenvalues, centroids, scales] = lpca(clusters, cent_crit, scal_crit)
+function [eigenvectors, scores, eigenvalues, centroids, scales] = lpca(clusters, cent_crit, scal_crit)
 % This function performs Principal Component Analysis in each of the local clusters.
 %
 % Input:
@@ -20,10 +20,10 @@ function [eigvec, u_scores, eigenvalues, centroids, scales] = lpca(clusters, cen
 %
 % Output:
 % ------------
-% - eigvec
+% - eigenvectors
 %           a cell array of eigenvectors (Principal Components) in each cluster.
 %
-% - u_scores
+% - scores
 %           a cell array of PC-scores in each cluster. It corresponds to
 %           computing the equation Z = X*A' in each cluster.
 %
@@ -31,11 +31,11 @@ function [eigvec, u_scores, eigenvalues, centroids, scales] = lpca(clusters, cen
 %           a cell array of eigenvalues in each cluster.
 %
 % - centroids
-%           a matrix of centers. Each row corresponds to each cluster and each
+%           a matrix of each cluster's centers. Each row corresponds to each cluster and each
 %           column corresponds to each variable.
 %
 % - scales
-%           a matrix of scalings. Each row corresponds to each cluster and each
+%           a matrix of each cluster's scalings. Each row corresponds to each cluster and each
 %           column corresponds to each variable.
 
 %% lpca()
@@ -54,8 +54,8 @@ k = length(clusters);
 n_vars = size(clusters{1}, 2);
 
 % Initialize outputs:
-eigvec = cell(k, 1);
-u_scores = cell(k, 1);
+eigenvectors = cell(k, 1);
+scores = cell(k, 1);
 eigenvalues = cell(k, 1);
 centroids = zeros(k, n_vars);
 scales = zeros(k, n_vars);
@@ -67,7 +67,7 @@ for j = 1:1:k
     [X, scales(j,:)] = scale(X, clusters{j}, scal_crit);
 
     % Perform PCA on data samples from this cluster:
-    [eigvec{j}, u_scores{j}, eigenvalues{j}] = pca(X, 'Centered', false, 'Algorithm', 'svd');
+    [eigenvectors{j}, scores{j}, eigenvalues{j}] = pca(X, 'Centered', false, 'Algorithm', 'svd');
 
 end
 
