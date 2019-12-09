@@ -1,4 +1,19 @@
 function [idx, nz_X_k, u_scores, eigvec, nz_idx_clust, eps_rec, convergence] = localPCA(scal_X, n_eigs, k, idx_0, iter_max, cent_crit, scal_crit, varargin)
+% This function performs Vector Quantization (VQ) partitioning of a data set to local clusters.
+%
+% Input:
+% ------------
+%
+%
+%
+%
+%
+%
+%
+% Output:
+% ------------
+%
+
 %% Description:
 % INPUT
 % scal_X: (n_obs x n_vars) - Data to be clustered.
@@ -43,11 +58,11 @@ end
 
 %% Parameters
 % Convergence indicators initialization
-convergence = 0;    
-iter = 0;                   
-eps_rec = 1.0;      
+convergence = 0;
+iter = 0;
+eps_rec = 1.0;
 eps_rec_min = 1.0e-02;
-a_tol = 1.0e-16;    
+a_tol = 1.0e-16;
 r_tol = 1.0e-8;
 % Dimensions
 [rows, columns] = size(scal_X);
@@ -67,14 +82,14 @@ end
 % Centroids initialization
 if ~isempty(idx_0)
     % User-supplied centroids initialization
-    if size(idx_0, 1) == rows 
+    if size(idx_0, 1) == rows
         % Get clusters
-        nz_X_k = cell(k, 1); 
+        nz_X_k = cell(k, 1);
         for j = 1 : k
             nz_X_k{j} = scal_X(idx_0 == j, :);
         end
         % Get cluster centroids
-        C = zeros(k, columns);        
+        C = zeros(k, columns);
         for j = 1 : k
             C(j, :) = mean(nz_X_k{j}, 1);
         end
@@ -84,7 +99,7 @@ if ~isempty(idx_0)
         C = scal_X(round(C_int(2:k+1)), :);
     end
     % Initialization of eigenvectors
-    eigvec = cell(k,1); 
+    eigvec = cell(k,1);
     gamma = cell(k,1);
     parfor j = 1 : k
         eigvec{j} = eye(columns, n_eigs);
@@ -94,13 +109,13 @@ else
     % KMEANS initialization
     fprintf('\nCentroids and cluster assignments initialization. \n');
     try
-        [idx_0, C] = kmeans(scal_X, k, 'MaxIter', 1e8); % Use kmeans to initialize 
+        [idx_0, C] = kmeans(scal_X, k, 'MaxIter', 1e8); % Use kmeans to initialize
     catch ME
-        [idx_0, C] = kmeans(scal_X, k, 'MaxIter', 1e8); % Use kmeans to initialize 
+        [idx_0, C] = kmeans(scal_X, k, 'MaxIter', 1e8); % Use kmeans to initialize
     end
-    k = length(unique(idx_0)); % Be sure k clusters were found 
+    k = length(unique(idx_0)); % Be sure k clusters were found
     % Initialize clusters
-    nz_X_k = cell(k,1); 
+    nz_X_k = cell(k,1);
     for j = 1 : k
         nz_X_k{j} = scal_X(idx_0 == j, :);
     end
@@ -118,7 +133,7 @@ end
 % 2) PARTITION
 n_eigs_max = min(size(scal_X));
 while (convergence == 0 && iter < iter_max) && (k ~= 1)
-    C_convergence = 0; % Convergence on the centroids  
+    C_convergence = 0; % Convergence on the centroids
     eps_rec_convergence = 0; % Convergence on the recovered variance
     fprintf('\nIteration n. %d, convergence %d \n', iter, convergence);
     % Print time info
@@ -127,10 +142,10 @@ while (convergence == 0 && iter < iter_max) && (k ~= 1)
     sq_rec_err = zeros(rows, k);
     parfor j = 1 : k
         D = get_D(gamma{j}, eigvec{j});
-        C_mat = repmat(C(j, :), rows, 1);     
+        C_mat = repmat(C(j, :), rows, 1);
         % Squared mean reconstruction error
         rec_err_os = (scal_X - C_mat - (scal_X - C_mat) * D^-1 * eigvec{j} * eigvec{j}' * D);
-        sq_rec_err(:, j) = sum(rec_err_os.^2, 2); 
+        sq_rec_err(:, j) = sum(rec_err_os.^2, 2);
     end
     % Evalutate the recovered minimum error, so assign an object to the
     % cluster whose PCA-manifold works best for it
@@ -159,7 +174,7 @@ while (convergence == 0 && iter < iter_max) && (k ~= 1)
     eps_rec_var = abs((eps_rec_new  - eps_rec) / eps_rec_new);
     fprintf('\nReconstruction error variance equal to %d \n', eps_rec_var);
     try
-        if ((eps_rec_var < r_tol) && (eps_rec_new > eps_rec_min) && (n_eigs < n_eigs_max)) 
+        if ((eps_rec_var < r_tol) && (eps_rec_new > eps_rec_min) && (n_eigs < n_eigs_max))
             n_eigs = n_eigs + 1;
             fprintf('\n Clusters dimension increased to %d \n', n_eigs);
         end
@@ -183,7 +198,7 @@ while (convergence == 0 && iter < iter_max) && (k ~= 1)
     % Update recontruction error and cluster centroids
     C = C_new;
     eps_rec = eps_rec_new;
-    iter = iter + 1; 
+    iter = iter + 1;
 end
 
 %% OUTPUT
@@ -227,7 +242,7 @@ parfor j = 1 : k
     % Center and scale, then do PCA
     [X, centroids(j,:)] = center(nz_X_k{j}, cent_crit);
     [X, gamma{j}] = scale(X, nz_X_k{j}, scal_crit);
-    [modes, ~, eigvals] = pca(X, 'Centered', false, 'Algorithm', 'svd'); 
+    [modes, ~, eigvals] = pca(X, 'Centered', false, 'Algorithm', 'svd');
     % Check n_eigs does not exceed the found number of modes
     n_modes = n_eigs;
     if n_eigs > size(modes, 2)
@@ -235,7 +250,7 @@ parfor j = 1 : k
     end
     % Outputs (and gamma)
     n_eig{j} = n_eigs;
-    eigvec{j} = modes(:, 1:n_modes);  
+    eigvec{j} = modes(:, 1:n_modes);
     u_scores{j} = X * eigvec{j};
 end
 end
@@ -252,6 +267,3 @@ catch
    end
 end
 end
-
-
-
