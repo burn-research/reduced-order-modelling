@@ -63,3 +63,23 @@ This functions returns a vector whose each entry is a number of observations in 
 ```matlab
 [populations] = get_cluster_populations(idx)
 ```
+
+### `degrade_clusters`
+
+This function degrades cluster numeration to consecutive integers. For example, if the initial `idx` is:
+
+```matlab
+idx = [1,1,1,2,2,4,4,4,2]
+```
+
+the new `idx` returned by the `degrade_clusters()` function will be:
+
+```matlab
+idx = [1,1,1,2,2,3,3,3,2]
+```
+
+so that the cluster numeration is composed of consecutive integers.
+
+```matlab
+[new_idx] = degrade_clusters(idx)
+```
