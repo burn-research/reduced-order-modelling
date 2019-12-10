@@ -32,7 +32,21 @@ A visualisation of the partitioning according to this method:
 
 ![Screenshot](dwgs/idx_mixture_fraction_bins.png)
 
+### Vector Quantization (VQ)
+
+Use the function `idx_vector_quantization()` to partition the data into `k` clusters according to the Vector Quantization (VQ) algorithm.
+
+```matlab
+[idx] = idx_vector_quantization(X, idx, k, is_remove, M, varargin)
+```
+
 ### K-Means
+
+Use the function `idx_kmeans()` to partition the data into `k` clusters according to the K-Means algorithm.
+
+```matlab
+[idx] = idx_kmeans(X, k)
+```
 
 # Helper functions
 
