@@ -4,7 +4,7 @@ function [idx] = idx_vector_quantization(X, idx, k, is_remove, M, varargin)
 % Input:
 % ------------
 % - X
-%       the raw data set.
+%       the data set to partition.
 %
 % - k
 %       number of bins (clusters) to partition the data set.

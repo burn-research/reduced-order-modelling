@@ -4,7 +4,7 @@ function [idx] = idx_kmeans(X, k)
 % Input:
 % ------------
 % - X
-%       the raw data set.
+%       the data set to partition.
 %
 % - k
 %       number of bins (clusters) to partition the data set.
@@ -14,6 +14,6 @@ function [idx] = idx_kmeans(X, k)
 % - idx
 %       a vector specifying division to clusters.
 
-idx = kmeans(X, k)
+idx = kmeans(X, k);
 
 end

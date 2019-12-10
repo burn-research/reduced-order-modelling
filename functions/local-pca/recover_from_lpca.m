@@ -1,5 +1,5 @@
-function lpca_X = recoverLpca(idx, A, Z, q, centroids, local_gamma, ave, gamma)
-%% Description
+function lpca_X = recover_from_lpca(idx, A, Z, q, centroids, local_gamma, ave, gamma)
+% This function is used to recover the approximated data from Local Principal Component Analysis.
 
 %% Input
 % Get info
@@ -7,7 +7,7 @@ n_clust = length(A);
 n_samples = length(idx);
 dim = size(A{1}, 1);
 % Handle optional inputs
-if ~exist('q','var') || isempty(q) 
+if ~exist('q','var') || isempty(q)
     q = size(A{1}, 2);
 end
 if ~exist('centroids', 'var') || isempty(centroids)
@@ -30,10 +30,10 @@ elseif iscell(local_gamma)
     end
     local_gamma = tmp;
 end
-if ~exist('ave','var') || isempty(ave) 
+if ~exist('ave','var') || isempty(ave)
     ave = [];
 end
-if ~exist('gamma','var') || isempty(gamma) 
+if ~exist('gamma','var') || isempty(gamma)
     gamma = [];
 end
 % Dummy check
@@ -73,4 +73,3 @@ if ~isempty(ave) && ~isempty(gamma)
     lpca_X = uncenter(lpca_X, ave);
 end
 end
-
