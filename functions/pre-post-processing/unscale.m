@@ -1,23 +1,32 @@
-function X = unscale(X, gamma)
-%% Description:
-% X: (n_obs x n_vars)
-% gamma: array of scaling factors
+function [unscaled_data] = unscale(scaled_data, scalings)
+% This function uncenters the centered data set.
 %
+% Input:
+% ------------
+% - centered_data
+%         a centered data set.
+%
+% - centerings
+%         a vector of centerings that were applied to the uncentered data set.
+%
+% Output:
+% ------------
+% - uncentered_data
+%         an uncentered data set.
 
-%% Input
-if isempty(gamma)
-    return
+%% unscale()
+% Checks:
+[~, n_vars] = size(scaled_data);
+
+if length(scalings) ~= n_vars
+    error('Scalings vector must have the same number of entries as the number of variables in a data set.');
 end
 
-%% Main
-[~, cols] = size(X);
-if length(gamma) ~= cols
-    error('Array GAMMA (size: %i) must be as long as columns of X (size: %i).', length(gamma), size(X,2));
-end
-for ii = 1 : cols
-    X(:,ii) = X(:,ii) * gamma(ii);
+% Unscale the data set:
+unscaled_data = zeros(size(scaled_data));
+
+for ii = 1:1:n_vars
+    unscaled_data(:,ii) = scaled_data(:,ii) * scalings(ii);
 end
 
 end
-
-

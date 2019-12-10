@@ -1,4 +1,4 @@
-function [scaled_data, scalings, scaling_name_str] = scale(unscaled_data, uncentered_data, scal_crit, user_supplied_scalings)
+function [scaled_data, scalings, scaling_name_str] = scale(unscaled_data, uncentered_data, scal_crit, user_supplied_scaling)
 % This function scales the data set.
 %
 % Input:
@@ -28,7 +28,7 @@ function [scaled_data, scalings, scaling_name_str] = scale(unscaled_data, uncent
 %         8   KURTOSIS-2
 %         9   KURTOSIS-3
 %
-% - user_supplied_scalings
+% - user_supplied_scaling
 %         a user supplied vector of scalings that will be applied to the unscaled data set.
 %
 % Output:
@@ -51,14 +51,14 @@ if n_obs ~= size(uncentered_data, 1) || n_vars ~= size(unscaled_data, 2)
   error('Dimensions of the uncentered data must be the same as the dimensions of the unscaled data.')
 end
 
-if exist('user_supplied_scalings', 'var') || ~isempty(user_supplied_scalings)
-  if length(user_supplied_scalings) ~= n_vars
+if exist('user_supplied_scaling', 'var')
+  if length(user_supplied_scaling) ~= n_vars
     error('The size of the user supplied scalings vector must match the number of variables in the data set.')
   end
 end
 
 % Find the vector of scalings:
-if ~exist('user_supplied_scalings', 'var') || isempty(user_supplied_scalings)
+if ~exist('user_supplied_scaling', 'var') || isempty(user_supplied_scaling)
     switch scal_crit
         case 0
             % NONE
@@ -112,7 +112,7 @@ if ~exist('user_supplied_scalings', 'var') || isempty(user_supplied_scalings)
     end
 else
     % Use user supplied scaling:
-    scalings = user_supplied_scalings;
+    scalings = user_supplied_scaling;
 end
 
 % Scale the data set:
