@@ -47,18 +47,23 @@ end
 a_tol = 1e-08;
 switch cent_crit
     case 0
+        centering_name_str = 'none';
         centerings = zeros(1, n_vars);
         centerings_matrix = repmat(centerings, n_obs, 1);
     case 1
+        centering_name_str = 'mean';
         centerings = mean_var;
         centerings_matrix = repmat(centerings, n_obs, 1);
     case 2
+        centering_name_str = 'grand_mean';
         centerings = mean_var;
         centerings_matrix = repmat(centerings, n_obs, 1) + repmat(mean_obs, 1, n_vars) - repmat(grand_mean, n_obs, n_vars);
     case 3 % Centering by minimum values
+        centering_name_str = 'min';
         centerings = min_val;
         centerings_matrix = repmat(centerings, n_obs, 1);
     case 4 % Centering by maximum values
+        centering_name_str = 'max';
         centerings = max_val;
         centerings_matrix = repmat(centerings, n_obs, 1);
     otherwise
