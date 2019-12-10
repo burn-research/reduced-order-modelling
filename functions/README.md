@@ -6,9 +6,7 @@ The general methodology for the usage of functions in this repository is present
 
 ![Screenshot](rom-methodology.png)
 
-## Available techniques
-
-### Data pre- and post-processing
+## Data pre-processing
 
 #### Centering and scaling
 
@@ -20,7 +18,17 @@ The general methodology for the usage of functions in this repository is present
 
 `unscale()`
 
-### Clustering
+## Clustering
+
+#### Finding clusters
+
+`idx_kmeans()`
+
+`idx_mixture_fraction_bins()`
+
+`idx_vector_quantization()`
+
+#### Auxiliary functions
 
 `get_centroids()`
 
@@ -28,7 +36,9 @@ The general methodology for the usage of functions in this repository is present
 
 `get_cluster_populations()`
 
-`idx_mixture_fraction_bins()`
+`degrade_clusters()`
+
+## Reduced-Order Modelling techniques
 
 ### Principal Component Analysis (PCA)
 
@@ -58,6 +68,8 @@ The general methodology for the usage of functions in this repository is present
 
 `performKriging()`
 
-### Quality of reconstruction measurements
+## Data post-processing
+
+#### Quality of reconstruction measurements
 
 `r_square()`
