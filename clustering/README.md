@@ -20,7 +20,7 @@ Use the function `idx_mixture_fraction_bins()` to partition the data into `k` cl
 [idx] = idx_mixture_fraction_bins(Z, k, Z_stoich)
 ```
 
-A visualisation of the partitioning according to this method:
+An example visualisation of the partitioning according to this method:
 
 ![Screenshot](dwgs/idx_mixture_fraction_bins.png)
 
@@ -32,7 +32,7 @@ Use the function `idx_vector_quantization_pca()` to partition the data into `k` 
 [idx] = idx_vector_quantization_pca(X, n_eigs, k, cent_crit, scal_crit, idx_0)
 ```
 
-A visualisation of the partitioning according to this method:
+An example visualisation of the partitioning according to this method:
 
 ![Screenshot](dwgs/idx_vector_quantization_pca.png)
 
@@ -44,7 +44,7 @@ Use the function `idx_kmeans()` to partition the data into `k` clusters accordin
 [idx] = idx_kmeans(X, k)
 ```
 
-A visualisation of the partitioning according to this method:
+An example visualisation of the partitioning according to this method:
 
 ![Screenshot](dwgs/idx_kmeans.png)
 
