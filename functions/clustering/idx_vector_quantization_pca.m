@@ -45,7 +45,7 @@ if exist('idx_0', 'var')
     end
 end
 
-% Initial parameters:
+% Initialize parameters:
 convergence = 0;
 iter = 0;
 iter_max = 600;
@@ -64,8 +64,8 @@ for j = 1:1:k
 end
 
 % Center and scale the data:
-[cent_X, X_ave] = center(X, cent_crit);
-[scal_X, X_gamma] = scale(cent_X, X, scal_crit);
+[scal_X, ~] = center(X, cent_crit);
+[scal_X, ~] = scale(scal_X, X, scal_crit);
 
 % Initialization of cluster centroids:
 if exist('idx_0', 'var')
@@ -83,28 +83,34 @@ end
 
 tic;
 
-% Iterate until convergence is reached or until the maximum number of iterations is reached:
+% VQPCA algorithm:
 while ((convergence == 0) && (iter < iter_max))
 
     fprintf('\nIteration n. %d, convergence %d \n', iter, convergence);
 
     % Initialize the reconstruction error matrix:
     sq_rec_err = zeros(n_obs, k);
+
+    % Initialize the convergence of the cluster centroids:
     C_convergence = 0;
+
+    % Initialize the convergence of the reconstruction error:
     eps_rec_convergence = 0;
 
-    % Reconstruct the data from the low-dimensional representation.
-    % Evaluate the mean squared reconstruction error:
+    % Reconstruct the data from the low-dimensional representation, evaluate the mean squared reconstruction error:
     for j = 1:1:k
+
         D = diag(gamma{j});
         C_mat = repmat(C(j, :), n_obs, 1);
+
         rec_err_os = (scal_X - C_mat - (scal_X - C_mat) * D^-1 * eigvec{j} * eigvec{j}' * D);
         sq_rec_err(:, j) = sum(rec_err_os.^2, 2);
+
     end
 
-    % Check if this is assigning the elements in idx:
+    % Assign the observations to clusters based on the minimum reconstruction error:
     [rec_err_min, idx] = min(sq_rec_err, [], 2);
-    rec_err_min_rel = (rec_err_min);
+    rec_err_min_rel = rec_err_min;
 
     % Evaluate the global mean reconstruction error:
     eps_rec_new = mean(rec_err_min_rel);
@@ -147,8 +153,7 @@ while ((convergence == 0) && (iter < iter_max))
     eps_rec_var = abs((eps_rec_new - eps_rec) / eps_rec_new);
     fprintf('\nReconstruction error variance equal to %d \n', eps_rec_var);
 
-    if ((eps_rec_var < r_tol) && (eps_rec_new > eps_rec_min) ...
-            && (n_eigs < n_eigs_max))
+    if ((eps_rec_var < r_tol) && (eps_rec_new > eps_rec_min) && (n_eigs < n_eigs_max))
         n_eigs = n_eigs + 1;
         fprintf('\n Cluster %d dimension increased to %d \n', j,  n_eigs);
     end
