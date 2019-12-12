@@ -48,35 +48,11 @@ Use the function `idx_kmeans()` to partition the data into `k` clusters accordin
 [idx] = idx_kmeans(X, k)
 ```
 
-# Helper functions
+# Auxiliary functions
 
 This is a collection of functions that do auxiliary tasks in clustering.
 
 ## Function descriptions
-
-### `get_centroids`
-
-This functions returns a matrix of centroids of every cluster. Centroids are computed as the mean of all the observations of a specific variable in a particular cluster.
-
-```matlab
-[centroids] = get_centroids(X, idx)
-```
-
-### `get_clusters`
-
-This functions returns a cell array of data set divided into clusters.
-
-```matlab
-[clusters] = get_clusters(X, idx)
-```
-
-### `get_cluster_populations`
-
-This functions returns a vector whose each entry is a number of observations in each cluster.
-
-```matlab
-[populations] = get_cluster_populations(idx)
-```
 
 ### `degrade_clusters`
 
@@ -96,4 +72,36 @@ so that the cluster numeration is composed of consecutive integers.
 
 ```matlab
 [new_idx] = degrade_clusters(idx)
+```
+
+### `get_centroids`
+
+This functions returns a matrix of centroids of every cluster. Centroids are computed as the mean of all the observations of a specific variable in a particular cluster.
+
+```matlab
+[centroids] = get_centroids(X, idx)
+```
+
+### `get_cluster_populations`
+
+This functions returns a vector whose each entry is a number of observations in each cluster.
+
+```matlab
+[populations] = get_cluster_populations(idx)
+```
+
+### `get_clusters`
+
+This functions returns a cell array of data set divided into clusters.
+
+```matlab
+[clusters] = get_clusters(X, idx)
+```
+
+### `get_partition`
+
+This function partitions the dataset to clusters given by `idx` vector. It returns a cell array of data set divided into clusters and a cell array of indices of original observations diveded into clusters. If less than `n_vars` observations are assigned to a particular cluster, this cluster will be removed.
+
+```matlab
+[clusters, clusters_idx, k_new] = get_partition(X, idx, k)
 ```
