@@ -20,14 +20,6 @@ Use the function `idx_mixture_fraction_bins()` to partition the data into `k` cl
 [idx] = idx_mixture_fraction_bins(Z, k, Z_stoich)
 ```
 
-#### Related functions
-
-In order to plot the visualisation of this clustering technique, use the function [`plot_mixture_fraction_divided_to_clusters`](https://github.com/burn-research/plotting/blob/master/plot_mixture_fraction/plot_mixture_fraction_divided_to_clusters.m) from the [`plotting`](https://github.com/burn-research/plotting) repository:
-
-```matlab
-plot_mixture_fraction_divided_to_clusters(data, Z, idx, np, destination)
-```
-
 A visualisation of the partitioning according to this method:
 
 ![Screenshot](dwgs/idx_mixture_fraction_bins.png)
@@ -40,12 +32,28 @@ Use the function `idx_vector_quantization_pca()` to partition the data into `k` 
 [idx] = idx_vector_quantization_pca(X, n_eigs, k, cent_crit, scal_crit, idx_0)
 ```
 
+A visualisation of the partitioning according to this method:
+
+![Screenshot](dwgs/idx_vector_quantization_pca.png)
+
 ### K-Means
 
 Use the function `idx_kmeans()` to partition the data into `k` clusters according to the K-Means algorithm.
 
 ```matlab
 [idx] = idx_kmeans(X, k)
+```
+
+A visualisation of the partitioning according to this method:
+
+![Screenshot](dwgs/idx_kmeans.png)
+
+### Related functions
+
+In order to plot a visualisation of a clustering technique, use the function [`plot_mixture_fraction_divided_to_clusters`](https://github.com/burn-research/plotting/blob/master/plot_mixture_fraction/plot_mixture_fraction_divided_to_clusters.m) from the [`plotting`](https://github.com/burn-research/plotting) repository:
+
+```matlab
+plot_mixture_fraction_divided_to_clusters(data, Z, idx, np, destination)
 ```
 
 # Auxiliary functions
