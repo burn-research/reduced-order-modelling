@@ -32,12 +32,12 @@ A visualisation of the partitioning according to this method:
 
 ![Screenshot](dwgs/idx_mixture_fraction_bins.png)
 
-### Vector Quantization (VQ)
+### Vector Quantization Principal Component Analysis (VQPCA)
 
-Use the function `idx_vector_quantization()` to partition the data into `k` clusters according to the Vector Quantization (VQ) algorithm.
+Use the function `idx_vector_quantization_pca()` to partition the data into `k` clusters according to the Vector Quantization (VQ) algorithm.
 
 ```matlab
-[idx] = idx_vector_quantization(X, idx, k, is_remove, M, varargin)
+[idx] = idx_vector_quantization_pca(X, n_eigs, k, cent_crit, scal_crit, idx_0)
 ```
 
 ### K-Means
