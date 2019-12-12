@@ -42,34 +42,32 @@ The general methodology for the usage of functions in this repository is present
 
 ## Reduced-Order Modelling techniques
 
+#### Feature Assisted Clustering (FAC)
+
+#### Independent Component Analysis (ICA)
+
+#### Kernel methods
+
+#### Kriging
+
 #### Local PCA (LPCA)
 
 `lpca()`
 
-#### Kernel PCA (KPCA)
-
-#### Independent Component Analysis (ICA)
-
-`fastICA()`
-
-`localICA()`
+`recover_from_lpca()`
 
 #### Non-negative Matrix Factorization (NMF)
 
-`localNNMF()`
-
-#### Kriging
-
-`performKriging()`
+#### Polynomial Chaos Expansion (PCE)
 
 ## Data post-processing
 
 #### Quality of reconstruction measurements
 
-`r_square()`
+`quality_of_reconstruction_measures()`
 
 #### Data operations
 
-`rotate_factors()`
-
 `procrustes_analysis()`
+
+`rotate_factors()`

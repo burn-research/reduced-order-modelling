@@ -1,4 +1,4 @@
-function [r2, nrmse, mean_ab_e, rmse] = r_square(y, f, varargin)
+function [r2, nrmse, mean_ab_e, rmse] = quality_of_reconstruction_measures(y, f, varargin)
 %% Description
 % Compute coefficient of determination of data fit model and RMSE
 %
@@ -6,13 +6,13 @@ function [r2, nrmse, mean_ab_e, rmse] = r_square(y, f, varargin)
 % [r2 nrmse] = rsquare(y,f,c)
 %
 % RSQUARE computes the coefficient of determination (R-square) value from
-% actual data Y and model data F. The code uses a general version of 
-% R-square, based on comparing the variability of the estimation errors 
+% actual data Y and model data F. The code uses a general version of
+% R-square, based on comparing the variability of the estimation errors
 % with the variability of the original values. RSQUARE also outputs the
 % root mean squared error (RMSE) for the user's convenience.
 %
 % Note: RSQUARE ignores comparisons involving NaN values.
-% 
+%
 % INPUTS
 %   Y       : Actual data
 %   F       : Model fit
@@ -25,7 +25,7 @@ function [r2, nrmse, mean_ab_e, rmse] = r_square(y, f, varargin)
 %            FALSE : Uses alternate R-square computation for model
 %                    without constant term [R2 = 1 - NORM(Y-F)/NORM(Y)]
 %
-% OUTPUT 
+% OUTPUT
 %   R2      : Coefficient of determination
 %   NRMSE   : Normalized Root mean squared error
 %   MAE     : Mean Absolute Error
@@ -33,18 +33,18 @@ function [r2, nrmse, mean_ab_e, rmse] = r_square(y, f, varargin)
 %
 
 %% Input
-if isempty(varargin) 
-    c = true; 
-elseif length(varargin) > 1 
+if isempty(varargin)
+    c = true;
+elseif length(varargin) > 1
     error('Too many input arguments');
-elseif ~islogical(varargin{1}) 
+elseif ~islogical(varargin{1})
     error('C must be logical (TRUE||FALSE)');
 else
     c = varargin{1};
 end
 % Compare inputs
-if ~all( size(y) == size(f) ) 
-    error('Y and F must be the same size'); 
+if ~all( size(y) == size(f) )
+    error('Y and F must be the same size');
 end
 
 ydim = size(y,2);
@@ -64,7 +64,7 @@ end
 tmp = ~or(isnan(y),isnan(f));
 y = y(tmp);
 f = f(tmp);
-if c 
+if c
     r2 = max(0, 1 - sum((y(:) - f(:)).^2) / sum((y(:) - mean(y(:))).^2));
 else
     r2 = 1 - sum((y(:) - f(:)).^2) / sum(y(:).^2);
@@ -78,5 +78,3 @@ nrmse = sqrt(mean((y(:) - f(:)).^2)) / sqrt(mean(y.^2));
 mean_ab_e = mean(abs(y(:) - f(:))) / mean(abs(y));
 rmse = sqrt(mean((y(:) - f(:)).^2));
 end
-
-
