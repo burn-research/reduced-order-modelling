@@ -1,4 +1,4 @@
-function X_app_lpca = recover_from_lpca(idx, eigenvectors, scores, q, centroids, local_scalings, centerings, scalings)
+function [X_app_lpca] = recover_from_lpca(idx, eigenvectors, scores, q, centroids, local_scalings, centerings, scalings)
 % This function is used to recover the approximated data from Local Principal Component Analysis.
 %
 % Input:
@@ -19,6 +19,9 @@ function X_app_lpca = recover_from_lpca(idx, eigenvectors, scores, q, centroids,
 % - centroids
 %           a matrix of each cluster's centerings. Each row corresponds to each cluster and each
 %           column corresponds to each variable.
+%
+% - local_scalings
+%           a vector of local scalings that were applied to scale the data set.
 %
 % - centerings
 %           a vector of centerings that were applied to center the data set.
