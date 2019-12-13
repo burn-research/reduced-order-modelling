@@ -1,4 +1,4 @@
-# <div style="width:30px">![Logo](documentation/burn_logo.png)</div> Reduced-Order Modelling for combustion data sets
+# ![Logo](documentation/burn_logo.png?thumbnail) Reduced-Order Modelling for combustion data sets
 
 This is a collection of Matlab tools for performing a general Reduced-Order Modelling on data sets. Many of the functions presented here can be used universally on data sets coming from various disciplines but the main focus was to apply the techniques to combustion data sets and hence some methods will be combustion-specific.
 
