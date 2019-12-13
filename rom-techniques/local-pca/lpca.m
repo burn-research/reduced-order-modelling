@@ -43,6 +43,12 @@ function [eigenvectors, scores, eigenvalues, centroids, scales] = lpca(clusters,
 %           column corresponds to each variable.
 
 %% lpca()
+% Number of clusters:
+k = length(clusters);
+
+% Number of variables:
+n_vars = size(clusters{1}, 2);
+
 % Checks:
 if ~exist('cent_crit', 'var') || isempty(cent_crit)
     cent_crit = 1;
@@ -51,14 +57,8 @@ if ~exist('scal_crit', 'var') || isempty(scal_crit)
     scal_crit = 0;
 end
 if ~exist('q', 'var') || isempty(q)
-    q = size(clusters{1}, 2);
+    q = n_vars;
 end
-
-% Number of clusters:
-k = length(clusters);
-
-% Number of variables:
-n_vars = size(clusters{1}, 2);
 
 % Initialize outputs:
 eigenvectors = cell(k, 1);
@@ -68,18 +68,18 @@ centroids = zeros(k, n_vars);
 scales = zeros(k, n_vars);
 
 for j = 1:1:k
-
+    
     % Center and scale data samples from this cluster:
     [X, centroids(j,:)] = center(clusters{j}, cent_crit);
     [X, scales(j,:)] = scale(X, clusters{j}, scal_crit);
 
     % Perform PCA on data samples from this cluster:
-    [eigenvectors, scores, eigenvalues] = pca(X, 'Centered', false, 'Algorithm', 'svd');
+    [eigvec, sc, eigvals] = pca(X, 'Centered', false, 'Algorithm', 'svd');
 
     % Retain only q first modes:
-    eigvectors{j} = eigenvectors(:, 1:q);
-    scores{j} = scores(:, 1:q);
-    eigenvalues{j} = eigenvalues(:, 1:q);
+    eigenvectors{j} = eigvec(:, 1:q);
+    scores{j} = sc(:, 1:q);
+    eigenvalues{j} = eigvals(1:q);
 
 end
 
