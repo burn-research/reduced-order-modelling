@@ -73,7 +73,3 @@ As a general rule, applicable to all functions presented in this repository, the
 `quality_of_reconstruction_measures()`
 
 #### Data operations
-
-`procrustes_analysis()`
-
-`rotate_factors()`
