@@ -30,7 +30,7 @@ B = rotatefactors(A, 'Method', 'varimax')
 
 In order to further aid the interpretation of factors, small weights on factors can be set to zero. Use the function `trim_factor_weight()` to set the weights below a `threshold` to zero, or the function `trim_factor_weight_iteratively()`, which trims weights iteratively and re-normalizes the factor after each trim. This function thus will never return a zero vector, which might happen with `trim_factor_weight` if you use too high threshold.
 
-**Use `trim_factor_weight_iteratively` when your threshold is of the order of the highest element of a vector.**
+Use `trim_factor_weight_iteratively()` when your threshold is of the order of the highest element of a vector.
 
 #### Orthogonalize factors
 
@@ -45,3 +45,11 @@ The Procrustes analysis can be used to compare two low-dimensional manifolds (e.
 ```
 
 where `X` an `Y` are manifolds that need to be conformed.
+
+#### Cluster homogeneity metrics
+
+In order to measure the homogeneity inside clusters found from various clustering techniques, use the function `cluster_homogeneity_metrics()`:
+
+```Matlab
+[mean_rmse, mean_silhouette, mean_delta, var_delta] = cluster_homogeneity_metrics(X, idx, n_pcs, cent_crit, scal_crit)
+```
