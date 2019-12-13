@@ -51,5 +51,5 @@ where `X` an `Y` are manifolds that need to be conformed.
 In order to measure the homogeneity inside clusters found from various clustering techniques, use the function `cluster_homogeneity_metrics()`:
 
 ```Matlab
-[mean_rmse, mean_silhouette, mean_delta, var_delta] = cluster_homogeneity_metrics(X, idx, n_pcs, cent_crit, scal_crit)
+[mean_rmse, mean_silhouette, mean_delta, var_delta] = cluster_homogeneity_metrics(X, idx, q, cent_crit, scal_crit)
 ```
