@@ -8,7 +8,9 @@ The general methodology for the usage of functions in this repository is present
 
 As a general rule, applicable to all functions presented in this repository, the original raw data set `X` has size `n_obs` x `n_vars`, where `n_obs` is the number of observations and `n_vars` is the number of variables. Typically `n_obs` >> `n_vars` and so `n_vars` determines the dimensionality of the problem.
 
-![Screenshot](documentation/data-set-for-rom.png)
+<p align="center">
+  <img src="https://github.com/burn-research/reduced-order-modelling/raw/master/documentation/data-set-for-rom.png">
+</p>
 
 ## Data pre-processing
 
