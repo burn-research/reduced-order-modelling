@@ -26,6 +26,16 @@ One of the possible methods is a Varimax rotation:
 B = rotatefactors(A, 'Method', 'varimax')
 ```
 
+#### Factor weight trimming
+
+In order to further aid the interpretation of factors, small weights on factors can be set to zero. Use the function `trim_factor_weight()` to set the weights below a `threshold` to zero, or the function `trim_factor_weight_iteratively()`, which trims weights iteratively and re-normalizes the factor after each trim. This function thus will never return a zero vector, which might happen with `trim_factor_weight` if you use too high threshold.
+
+**Use `trim_factor_weight_iteratively` when your threshold is of the order of the highest element of a vector.**
+
+#### Orthogonalize factors
+
+To orthogonalize factors, use the function `orthogonalize_factors()` which performs the Gram-Schmidt orthogonalization.
+
 #### Procrustes analysis
 
 The Procrustes analysis can be used to compare two low-dimensional manifolds (e.g. coming from two ROM techniques). The analysis can be performed using the built-in Matlab function [`procrustes()`](https://nl.mathworks.com/help/stats/procrustes.html):
