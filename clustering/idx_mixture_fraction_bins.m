@@ -3,9 +3,9 @@ function [idx] = idx_mixture_fraction_bins(Z, k, Z_stoich)
 % Bins intervals are found starting from the first one which divides the `Z` space
 % into two parts at the stoichiometric mixture fraction `Z_stoich`.
 %
-%      min_Z                                                  max_Z
-%        |----------|----------|----------|----------|----------|
-%           bin 1      bin 2      bin 3       bin 4     bin 5
+%      min_Z                      Z_stoich                          max_Z
+%        |-------------|-------------|----------|----------|----------|
+%             bin 1          bin 2       bin 3       bin 4     bin 5
 %
 % Input:
 % ------------
