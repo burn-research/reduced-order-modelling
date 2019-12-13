@@ -1,4 +1,4 @@
-function [eigenvectors, scores, eigenvalues, centroids, scales] = lpca(clusters, cent_crit, scal_crit)
+function [eigenvectors, scores, eigenvalues, centroids, scales] = lpca(clusters, cent_crit, scal_crit, q)
 % This function performs Principal Component Analysis in each of the local clusters.
 %
 % Input:
@@ -17,6 +17,10 @@ function [eigenvectors, scores, eigenvalues, centroids, scales] = lpca(clusters,
 % - scal_crit
 %           scaling criteria as per function `scale()`. Data samples from each cluster
 %           will be scaled with this scaling criteria.
+%
+% - q
+%           the number of eigenvectors (PCs) to retain in PCA. If this parameter is not given,
+%           all eigenvectors will be retained.
 %
 % Output:
 % ------------
@@ -46,6 +50,9 @@ end
 if ~exist('scal_crit', 'var') || isempty(scal_crit)
     scal_crit = 0;
 end
+if ~exist('q', 'var') || isempty(q)
+    q = size(clusters{1}, 2);
+end
 
 % Number of clusters:
 k = length(clusters);
@@ -67,7 +74,12 @@ for j = 1:1:k
     [X, scales(j,:)] = scale(X, clusters{j}, scal_crit);
 
     % Perform PCA on data samples from this cluster:
-    [eigenvectors{j}, scores{j}, eigenvalues{j}] = pca(X, 'Centered', false, 'Algorithm', 'svd');
+    [eigenvectors, scores, eigenvalues] = pca(X, 'Centered', false, 'Algorithm', 'svd');
+
+    % Retain only q first modes:
+    eigvectors{j} = eigenvectors(:, 1:q);
+    scores{j} = scores(:, 1:q);
+    eigenvalues{j} = eigenvalues(:, 1:q);
 
 end
 
