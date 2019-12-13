@@ -1,14 +1,14 @@
-# Reduced-Order Modelling for combustion data sets
+# Reduced-Order Modelling for combustion data sets ![Logo](documentation/burn_logo.png?thumbnail)
 
 This is a collection of Matlab tools for performing a general Reduced-Order Modelling on data sets. Many of the functions presented here can be used universally on data sets coming from various disciplines but the main focus was to apply the techniques to combustion data sets and hence some methods will be combustion-specific.
 
 The general methodology for the usage of functions in this repository is presented on the graph below:
 
-![Screenshot](rom-methodology.png)
+![Screenshot](documentation/rom-methodology.png)
 
 As a general rule, applicable to all functions presented in this repository, the original raw data set `X` has size `n_obs` x `n_vars`, where `n_obs` is the number of observations and `n_vars` is the number of variables. Typically `n_obs` >> `n_vars` and so `n_vars` determines the dimensionality of the problem.
 
-![Screenshot](data-set-for-rom.png)
+![Screenshot](documentation/data-set-for-rom.png)
 
 ## Data pre-processing
 
