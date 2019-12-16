@@ -191,7 +191,7 @@ while ((convergence == 0) && (iter < iter_max))
     % Perform PCA in local clusters:
     for j = 1:1:k
         [centered_scaled_local_X, ~] = center(nz_X_k{j}, cent_crit);
-        [centered_scaled_local_X, gamma{j}] = scale(centered_scaled_local_X, nz_X_k{j}, scal_crit);
+        [centered_scaled_local_X, gamma{j}] = scale(centered_scaled_local_X, nz_X_k{j}, 0); % don't scale in local clusters
         [modes] = pca(centered_scaled_local_X, 'Centered', false, 'Algorithm', 'svd');
         eigvec{j} = modes(:,1:n_eigs);
         u_scores{j} = centered_scaled_local_X * eigvec{j};
