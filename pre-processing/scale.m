@@ -27,6 +27,7 @@ function [scaled_data, scalings, scaling_name_str] = scale(unscaled_data, uncent
 %         7   KURTOSIS-1
 %         8   KURTOSIS-2
 %         9   KURTOSIS-3
+%         10  NORM, each variable is normalized by its norm
 %
 % - user_supplied_scaling
 %         a user supplied vector of scalings that will be applied to the unscaled data set.
@@ -107,6 +108,10 @@ if ~exist('user_supplied_scaling', 'var') || isempty(user_supplied_scaling)
             vast_4 = std_value.^2 .* kurt_value.^2 ./ range_value;
             scalings = vast_4;
             scaling_name_str = 'std_kurt_3';
+        case 10
+            % NORM
+            scalings = vecnorm(uncentered_data);
+            scaling_name_str = 'norm';
         otherwise
             error('Unknown scaling criterion');
     end
