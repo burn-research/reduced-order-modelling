@@ -22,7 +22,9 @@ Use the function `idx_mixture_fraction_bins()` to partition the data into `k` cl
 
 An example visualisation of the partitioning according to this method:
 
-![Screenshot](dwgs/idx_mixture_fraction_bins.png)
+<p align="center">
+  <img src="https://github.com/burn-research/reduced-order-modelling/raw/master/clustering/dwgs/idx_mixture_fraction_bins.png" width="500">
+</p>
 
 ### Vector Quantization Principal Component Analysis (VQPCA)
 
