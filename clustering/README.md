@@ -36,7 +36,9 @@ Use the function `idx_vector_quantization_pca()` to partition the data into `k` 
 
 An example visualisation of the partitioning according to this method:
 
-![Screenshot](dwgs/idx_vector_quantization_pca.png)
+<p align="center">
+  <img src="https://github.com/burn-research/reduced-order-modelling/raw/master/clustering/dwgs/idx_vector_quantization_pca.png" width="500">
+</p>
 
 ### K-Means
 
@@ -48,7 +50,9 @@ Use the function `idx_kmeans()` to partition the data into `k` clusters accordin
 
 An example visualisation of the partitioning according to this method:
 
-![Screenshot](dwgs/idx_kmeans.png)
+<p align="center">
+  <img src="https://github.com/burn-research/reduced-order-modelling/raw/master/clustering/dwgs/idx_kmeans.png" width="500">
+</p>
 
 ### Related functions
 
