@@ -68,8 +68,16 @@ As a general rule, applicable to all functions presented in this repository, the
 
 ## Data post-processing
 
-#### Quality of reconstruction measurements
+#### Goodness-of-fit measurements
 
 `quality_of_reconstruction_measures()`
 
+`cluster_homogeneity_metrics()`
+
 #### Data operations
+
+`orthogonalize_factors()`
+
+`trim_factor_weight_iteratively()`
+
+`trim_factor_weight()`
