@@ -110,7 +110,7 @@ if ~exist('user_supplied_scaling', 'var') || isempty(user_supplied_scaling)
             scaling_name_str = 'std_kurt_3';
         case 10
             % NORM
-            scalings = vecnorm(uncentered_data);
+            scalings = vecnorm(unscaled_data);
             scaling_name_str = 'norm';
         otherwise
             error('Unknown scaling criterion');
