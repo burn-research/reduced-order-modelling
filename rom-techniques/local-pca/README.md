@@ -13,7 +13,7 @@ To cluster the data set you can use any technique that you want. The ultimate go
 - Mixture fraction clustering
 
 <p align="center">
-  <img src="https://github.com/burn-research/reduced-order-modelling/raw/master/documentation/idx-X.png">
+  <img src="https://github.com/burn-research/reduced-order-modelling/raw/master/documentation/idx-X.png" width="500">
 </p>
 
 ### Pre-process the data set (center and scale)
