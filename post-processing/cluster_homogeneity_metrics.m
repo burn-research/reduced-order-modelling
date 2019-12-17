@@ -33,22 +33,21 @@ function [mean_nrmse, mean_silhouette, mean_delta, var_delta] = cluster_homogene
 %       variance of dy/mean(y), where y are the observations belonging to a particular cluster.
 
 %% cluster_homogeneity_metrics()
-
 % Center and scale data:
-[X_cent_scal, ~] = center(X, cent_crit);
-[X_cent_scal, ~] = scale(X_cent_scal, X, scal_crit);
+[X_cent_scal, centerings] = center(X, cent_crit);
+[X_cent_scal, scalings] = scale(X_cent_scal, X, scal_crit);
 
 % Perform PCA in local cluster and recover the data set:
-clusters = get_clusters(X_cent_scal, idx);
-[eigvec, scores, ~, centroids] = lpca(clusters, cent_crit, 0, q);
-X_rec = recover_from_lpca(idx, eigvec, scores, q, centroids);
+[clusters] = get_clusters(X_cent_scal, idx);
+[eigvec, scores, eigenvalues, centroids, local_scalings] = lpca(clusters, q, cent_crit);
+[X_rec] = recover_from_lpca(idx, eigvec, scores, q, centroids, local_scalings, centerings, scalings);
 
 % Mean normalized Root Mean Squared error:
-[~, nrmse] = quality_of_reconstruction_measures(X_cent_scal, X_rec);
+[~, nrmse] = quality_of_reconstruction_measures(X, X_rec);
 mean_nrmse = mean(nrmse);
 
 % Mean silhoutte:
-mean_silhouette = mean(silhouette(X,idx));
+mean_silhouette = mean(silhouette(X, idx));
 
 % dy/mean(y) factor, mean and variance:
 n_var = size(X, 2);
