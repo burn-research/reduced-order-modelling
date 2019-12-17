@@ -16,7 +16,9 @@ The original raw data set `X_raw` has size `n_obs` x `n_vars`, where `n_obs` is 
   <img src="https://github.com/burn-research/reduced-order-modelling/raw/master/documentation/data-set-for-rom.png">
 </p>
 
-This is the shape of the data set that is the input for all the functions presented here. In case your data set is of shape `n_vars` x `n_obs`, you need to remember to take its transpose.
+This is the shape of the data set that is the input for all the functions presented here. In case your data set is of shape `n_vars` x `n_obs` you need to remember to take its transpose.
+
+# Functions
 
 ## Data generation
 
