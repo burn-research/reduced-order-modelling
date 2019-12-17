@@ -12,6 +12,12 @@ As a general rule, applicable to all functions presented in this repository, the
   <img src="https://github.com/burn-research/reduced-order-modelling/raw/master/documentation/data-set-for-rom.png">
 </p>
 
+## Data generation
+
+`Burke_Schumann_solution_CH4_air()`
+
+`add_noise_to_data()`
+
 ## Data pre-processing
 
 #### Centering and scaling
