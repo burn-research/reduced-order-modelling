@@ -65,7 +65,7 @@ end
 nrmse = sqrt(mean((X(:) - F(:)).^2)) / sqrt(mean(X.^2));
 
 % Mean Absolute Error:
-mae = mean(abs(X():) - F(:))) / mean(abs(X));
+mae = mean(abs(X(:) - F(:))) / mean(abs(X));
 
 % Root Mean Squared Error:
 rmse = sqrt(mean((X(:) - F(:)).^2));
