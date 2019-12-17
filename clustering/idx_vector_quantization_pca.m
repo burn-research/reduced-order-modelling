@@ -1,5 +1,6 @@
 function [idx] = idx_vector_quantization_pca(X, n_eigs, k, cent_crit, scal_crit, idx_0)
-% This function performs Vector Quantization Principal Component Analysis (VQPCA).
+% This function partitions the data into `k` clusters according to
+% Vector Quantization Principal Component Analysis (VQPCA) algorithm.
 %
 % Input:
 % ------------
