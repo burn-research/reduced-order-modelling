@@ -1,4 +1,4 @@
-function [eigenvectors, scores, eigenvalues, centroids, scales] = lpca(clusters, cent_crit, scal_crit, q)
+function [eigenvectors, scores, eigenvalues, centroids, local_scales] = lpca(clusters, q, cent_crit, scal_crit)
 % This function performs Principal Component Analysis in each of the local clusters.
 %
 % Input:
@@ -10,17 +10,20 @@ function [eigenvectors, scores, eigenvalues, centroids, scales] = lpca(clusters,
 %
 %           {[data samples from cluster k_1]; [from cluster k_2]; ...; [from cluster k_k]}
 %
+% - q
+%           the number of eigenvectors (PCs) to retain in PCA. The returned variables will
+%           be trimmed to show only q components. If this parameter is not given,
+%           all eigenvectors will be retained.
+%
 % - cent_crit
 %           centering criteria as per function `center()`. Data samples from each cluster
 %           will be centered with this centering criteria.
 %
 % - scal_crit
 %           scaling criteria as per function `scale()`. Data samples from each cluster
-%           will be scaled with this scaling criteria.
-%
-% - q
-%           the number of eigenvectors (PCs) to retain in PCA. If this parameter is not given,
-%           all eigenvectors will be retained.
+%           will be scaled with this scaling criteria. If the scaling is
+%           not provided, data samples within the clusters will not be
+%           scaled.
 %
 % Output:
 % ------------
@@ -38,7 +41,7 @@ function [eigenvectors, scores, eigenvalues, centroids, scales] = lpca(clusters,
 %           a matrix of each cluster's centers. Each row corresponds to each cluster and each
 %           column corresponds to each variable.
 %
-% - scales
+% - local_scales
 %           a matrix of each cluster's scalings. Each row corresponds to each cluster and each
 %           column corresponds to each variable.
 
@@ -65,13 +68,13 @@ eigenvectors = cell(k, 1);
 scores = cell(k, 1);
 eigenvalues = cell(k, 1);
 centroids = zeros(k, n_vars);
-scales = zeros(k, n_vars);
+local_scales = zeros(k, n_vars);
 
 for j = 1:1:k
     
     % Center and scale data samples from this cluster:
     [X, centroids(j,:)] = center(clusters{j}, cent_crit);
-    [X, scales(j,:)] = scale(X, clusters{j}, scal_crit);
+    [X, local_scales(j,:)] = scale(X, clusters{j}, scal_crit);
 
     % Perform PCA on data samples from this cluster:
     [eigvec, sc, eigvals] = pca(X, 'Centered', false, 'Algorithm', 'svd');

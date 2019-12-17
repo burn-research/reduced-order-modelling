@@ -21,7 +21,9 @@ function [X_app_lpca] = recover_from_lpca(idx, eigenvectors, scores, q, centroid
 %           column corresponds to each variable.
 %
 % - local_scalings
-%           a vector of local scalings that were applied to scale the data set.
+%           a vector of local scalings that were applied to scale the data
+%           set. Used when observations in each cluster were additionally
+%           scaled apart from global data scaling.
 %
 % - centerings
 %           a vector of centerings that were applied to center the data set.
