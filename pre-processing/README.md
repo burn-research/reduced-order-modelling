@@ -5,7 +5,7 @@
 Use the function `center()` in order to center the data set:
 
 ```matlab
-[centered_data, ave, centering_name_str] = center(uncentered_data, cent_crit, user_supplied_centering)
+[centered_data, centerings, centering_name_str] = center(uncentered_data, cent_crit, user_supplied_centering)
 ```
 
 Use the function `scale()` in order to scale the data set:
