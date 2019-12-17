@@ -15,6 +15,7 @@ function [X_app_lpca] = recover_from_lpca(idx, eigenvectors, scores, q, centroid
 %
 % - q
 %           the number of Principal Components (PCs) to retain in the approximation.
+%           It is equivalent to specifying the rank of the approximation.
 %
 % - centroids
 %           a matrix of each cluster's centerings. Each row corresponds to each cluster and each
