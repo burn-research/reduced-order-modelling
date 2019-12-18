@@ -17,3 +17,5 @@ Use the function `recover_from_pca()` to recover a rank-`q` approximation to the
 ```
 
 If `q` is not specified, the highest rank approximation will be made. If `centerings` or `scalings` is not specified, the approximated data set will not be uncentered or unscaled at the end.
+
+![Screenshot](https://raw.githubusercontent.com/camillejr/ulb-atm-phd/master/PCA/DWGs/PCA-example-subplot.png)

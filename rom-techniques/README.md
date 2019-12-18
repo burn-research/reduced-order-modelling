@@ -4,8 +4,6 @@ The main methods that are implemented in this repository are presented below.
 
 ## Principal Component Analysis
 
-![Screenshot](https://raw.githubusercontent.com/camillejr/ulb-atm-phd/master/PCA/DWGs/PCA-example-subplot.png)
-
 **Global PCA**
 
 The standard PCA on a pre-processed data set `X` can be run using the built-in Matlab function [`pca()`](https://nl.mathworks.com/help/stats/pca.html):
