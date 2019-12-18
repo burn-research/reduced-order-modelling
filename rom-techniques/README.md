@@ -11,7 +11,7 @@ The main methods that are implemented in this repository are presented below.
 The standard PCA on a pre-processed data set `X` can be run using the built-in Matlab function [`pca()`](https://nl.mathworks.com/help/stats/pca.html):
 
 ```matlab
-[PCs, PC_scores, eigenvalues, tsquared, variance_explained, mu] = pca(X, 'Centered', false);
+[eigenvectors, scores, eigenvalues, tsquared, variance_explained, mu] = pca(X, 'Centered', false);
 ```
 
 **Local PCA**
