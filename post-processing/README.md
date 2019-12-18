@@ -1,11 +1,23 @@
 # Data post-processing
 
-## Estimation of reconstruction errors
+## Metrics
+
+### Reconstruction errors
 
 Use the function `quality_of_reconstruction_measures()` to compute reconstruction errors between the original data `X` and the model fit to your data `F`.
 
 ```matlab
 [r2, nrmse, mae, rmse] = quality_of_reconstruction_measures(X, F)
+```
+
+### Cluster homogeneity
+
+#### Cluster homogeneity metrics
+
+In order to measure the homogeneity inside clusters found from various clustering techniques, use the function `cluster_homogeneity_metrics()`:
+
+```Matlab
+[mean_rmse, mean_silhouette, mean_delta, var_delta] = cluster_homogeneity_metrics(X, idx, q, cent_crit, scal_crit)
 ```
 
 ## Data operations
@@ -45,11 +57,3 @@ The Procrustes analysis can be used to compare two low-dimensional manifolds (e.
 ```
 
 where `X` an `Y` are manifolds that need to be conformed.
-
-#### Cluster homogeneity metrics
-
-In order to measure the homogeneity inside clusters found from various clustering techniques, use the function `cluster_homogeneity_metrics()`:
-
-```Matlab
-[mean_rmse, mean_silhouette, mean_delta, var_delta] = cluster_homogeneity_metrics(X, idx, q, cent_crit, scal_crit)
-```
