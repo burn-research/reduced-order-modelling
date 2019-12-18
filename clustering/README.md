@@ -54,10 +54,10 @@ Use the function `idx_kmeans()` to partition the data into `k` clusters accordin
 [idx] = idx_kmeans(X, k)
 ```
 
-> ### Related functions
->
-> In order to plot a visualisation of a clustering technique, use the function [`plot_mixture_fraction_divided_to_clusters`](https://github.com/burn-research/plotting/blob/master/plot_mixture_fraction/plot_mixture_fraction_divided_to_clusters.m) from the [`plotting`](https://github.com/burn-research/plotting) repository:
->
+## Related functions
+
+In order to visualise the partitioning done by a clustering technique in a mixture fraction space, use the function [`plot_mixture_fraction_divided_to_clusters`](https://github.com/burn-research/plotting/blob/master/plot_mixture_fraction/plot_mixture_fraction_divided_to_clusters.m) from the [`plotting`](https://github.com/burn-research/plotting) repository:
+
 ```matlab
 plot_mixture_fraction_divided_to_clusters(data, Z, idx, np, destination)
 ```
