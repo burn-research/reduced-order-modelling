@@ -16,6 +16,8 @@ The above vector has the following interpretation: the first four observations b
 
 ## Clustering functions descriptions
 
+In construction...
+
 ### Bins of mixture fraction
 
 Use the function `idx_mixture_fraction_bins()` to partition the data into `k` clusters (bins) according to the mixture fraction space `Z`. Bins intervals are found starting from the first split which divides the `Z` space into two parts at the stoichiometric mixture fraction `Z_stoich`. Next, the **rich** and **lean** sides are divided equally into clusters.
@@ -43,8 +45,10 @@ Use the function `idx_vector_quantization_pca()` to partition the data into `k` 
 Use the function `idx_feature_assisted_clustering()` to partition the data into `k` clusters according to the Feature Assisted Clustering.
 
 ```matlab
-idx] = idx_feature_assisted_clustering(X, artificial_modes, cent_crit, scal_crit)
+[idx] = idx_feature_assisted_clustering(X, artificial_modes, cent_crit, scal_crit)
 ```
+
+### Distance metrics clustering
 
 ### K-Means
 
