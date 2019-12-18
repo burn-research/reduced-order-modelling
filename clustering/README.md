@@ -38,12 +38,6 @@ Use the function `idx_vector_quantization_pca()` to partition the data into `k` 
 [idx] = idx_vector_quantization_pca(X, n_eigs, k, cent_crit, scal_crit, idx_0)
 ```
 
-An example visualisation of the partitioning according to this method:
-
-<p align="center">
-  <img src="https://github.com/burn-research/reduced-order-modelling/raw/master/clustering/dwgs/idx_vector_quantization_pca.png" width="500">
-</p>
-
 ### K-Means
 
 Use the function `idx_kmeans()` to partition the data into `k` clusters according to the K-Means algorithm.
@@ -51,12 +45,6 @@ Use the function `idx_kmeans()` to partition the data into `k` clusters accordin
 ```matlab
 [idx] = idx_kmeans(X, k)
 ```
-
-An example visualisation of the partitioning according to this method:
-
-<p align="center">
-  <img src="https://github.com/burn-research/reduced-order-modelling/raw/master/clustering/dwgs/idx_kmeans.png" width="500">
-</p>
 
 ### Related functions
 
