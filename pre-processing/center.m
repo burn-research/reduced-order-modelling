@@ -38,9 +38,10 @@ function [centered_data, centerings, centering_name_str] = center(uncentered_dat
 a_tol = 1e-08;
 
 % Checks:
-if exist('user_supplied_centering', 'var') && ~isempty(user_supplied_centering)
-    mean_var = user_supplied_centering;
-    cent_crit = 1;
+if exist('user_supplied_scaling', 'var')
+  if length(user_supplied_scaling) ~= n_vars
+    error('The size of the user supplied scalings vector must match the number of variables in the data set.')
+  end
 end
 
 % Find the vector of scalings:
@@ -68,6 +69,7 @@ if ~exist('user_supplied_centering', 'var') || isempty(user_supplied_centering)
         centerings_matrix = repmat(centerings, n_obs, 1);
     otherwise
         error('Unknown centering criterion');
+    end
 else
   % Use user supplied centering:
   centerings = user_supplied_centerings;
