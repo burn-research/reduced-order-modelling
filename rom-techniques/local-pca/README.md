@@ -9,6 +9,7 @@ This is the typical workflow for performing Local PCA.
 To cluster the data set you can use any technique that you want. The ultimate goal of clustering is to obtain the vector `idx` which classifies every observations to a particular cluster. In this repository three techniques are implemented in the [`clustering`](https://github.com/burn-research/reduced-order-modelling/tree/master/clustering) directory:
 
 - Vector Quantization PCA (VQPCA)
+- Feature Assisted Clustering (FAC)
 - K-Means clustering
 - Mixture fraction clustering
 
