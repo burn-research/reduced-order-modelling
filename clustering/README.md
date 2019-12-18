@@ -56,9 +56,9 @@ Use the function `idx_kmeans()` to partition the data into `k` clusters accordin
 
 > ### Related functions
 >
-In order to plot a visualisation of a clustering technique, use the function [`plot_mixture_fraction_divided_to_clusters`](https://github.com/burn-research/plotting/blob/master/plot_mixture_fraction/plot_mixture_fraction_divided_to_clusters.m) from the [`plotting`](https://github.com/burn-research/plotting) repository:
+> In order to plot a visualisation of a clustering technique, use the function [`plot_mixture_fraction_divided_to_clusters`](https://github.com/burn-research/plotting/blob/master/plot_mixture_fraction/plot_mixture_fraction_divided_to_clusters.m) from the [`plotting`](https://github.com/burn-research/plotting) repository:
 >
-```matlab
+> ```matlab
 plot_mixture_fraction_divided_to_clusters(data, Z, idx, np, destination)
 ```
 
