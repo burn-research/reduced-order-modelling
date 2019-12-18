@@ -31,68 +31,50 @@ function [centered_data, centerings, centering_name_str] = center(uncentered_dat
 % - centering_name_str
 %         a string specifying the centering option.
 
-% Definition of parameters
+%% center()
+% Get dimensions:
 [n_obs, n_vars] = size(uncentered_data);
-mean_var = mean(uncentered_data, 1);
-min_val = min(uncentered_data, [], 1);
-max_val = max(uncentered_data, [], 1);
-mean_obs = mean(uncentered_data, 2);
-grand_mean = mean(mean_var);
-% Get user-supplied mean
+
+a_tol = 1e-08;
+
+% Checks:
 if exist('user_supplied_centering', 'var') && ~isempty(user_supplied_centering)
     mean_var = user_supplied_centering;
     cent_crit = 1;
 end
-% Relative tolerance
-a_tol = 1e-08;
-switch cent_crit
+
+% Find the vector of scalings:
+if ~exist('user_supplied_centering', 'var') || isempty(user_supplied_centering)
+  switch cent_crit
     case 0
         centering_name_str = 'none';
         centerings = zeros(1, n_vars);
         centerings_matrix = repmat(centerings, n_obs, 1);
     case 1
         centering_name_str = 'mean';
-        centerings = mean_var;
+        centerings = mean(uncentered_data, 1);
         centerings_matrix = repmat(centerings, n_obs, 1);
     case 2
         centering_name_str = 'grand_mean';
-        centerings = mean_var;
-        centerings_matrix = repmat(centerings, n_obs, 1) + repmat(mean_obs, 1, n_vars) - repmat(grand_mean, n_obs, n_vars);
-    case 3 % Centering by minimum values
+        centerings = mean(uncentered_data, 1);
+        centerings_matrix = repmat(centerings, n_obs, 1) + repmat(mean(uncentered_data, 1), 1, n_vars) - repmat(mean(mean_var), n_obs, n_vars);
+    case 3
         centering_name_str = 'min';
-        centerings = min_val;
+        centerings = min(uncentered_data, [], 1);
         centerings_matrix = repmat(centerings, n_obs, 1);
-    case 4 % Centering by maximum values
+    case 4
         centering_name_str = 'max';
-        centerings = max_val;
+        centerings = max(uncentered_data, [], 1);
         centerings_matrix = repmat(centerings, n_obs, 1);
     otherwise
         error('Unknown centering criterion');
+else
+  % Use user supplied centering:
+  centerings = user_supplied_centerings;
+  centerings_matrix = repmat(centerings, n_obs, 1);
 end
-% Subtract the mean
+
+% Subtract the centerings:
 centered_data = uncentered_data - centerings_matrix;
-% We check now that each variable has zero mean
-switch cent_crit
-    case 1
-        mean_vars_data = mean(centered_data, 1);
-        for j = 1 : n_vars
-            if (abs(mean_vars_data(j)) > a_tol)
-               % disp(mean_vars_data);
-               % error('The mean of each variable does not equal zero');
-            end
-        end
-    case 2
-        mean_vars_data = mean(centered_data, 1);
-        mean_obs_data = mean(centered_data, 2);
-        for j = 1 : n_vars
-            if (abs(mean_vars_data(j)) > a_tol)
-                error('The mean of each variable does not equal zero');
-            end
-        end
-        for i = 1 : n_obs
-            if (abs(mean_obs_data(i)) > a_tol)
-                error('The mean of each row does not equal zero');
-            end
-        end
-end
+
 end

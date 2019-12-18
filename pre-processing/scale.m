@@ -44,10 +44,12 @@ function [scaled_data, scalings, scaling_name_str] = scale(unscaled_data, uncent
 %         a string specifying the scaling option.
 
 %% scale()
-% Checks:
+% Get dimensions:
 [n_obs, n_vars] = size(unscaled_data);
+
 a_tol = 1e-16;
 
+% Checks:
 if n_obs ~= size(uncentered_data, 1) || n_vars ~= size(unscaled_data, 2)
   error('Dimensions of the uncentered data must be the same as the dimensions of the unscaled data.')
 end
