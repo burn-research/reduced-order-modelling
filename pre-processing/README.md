@@ -25,3 +25,5 @@ Use the function `unscale()` in order to unscale the scaled data set:
 ```matlab
 [unscaled_data] = unscale(scaled_data, scalings)
 ```
+
+## Outlier detection and removal
