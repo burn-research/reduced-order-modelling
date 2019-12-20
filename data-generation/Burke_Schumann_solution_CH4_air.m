@@ -152,28 +152,35 @@ if graph == true
     set(gcf, 'Units', 'Normalized', 'OuterPosition', [0, 0, 0.7, 1]);
     subplot(2, 3, 1)
     plot(Z, T, 'k', 'LineWidth', 2)
-    title('T [K]', 'FontSize', 25)
+    % xlabel('F [-]', 'FontSize', 25)
+    ylabel('T [K]', 'FontSize', 25)
     set(gca, 'FontSize', 20); box on; grid on
     subplot(2, 3, 2)
     plot(Z, yCH4, 'k', 'LineWidth', 2)
-    title('CH4', 'FontSize', 25)
+    % xlabel('F [-]', 'FontSize', 25)
+    ylabel('$Y_{CH4}$ [-]', 'FontSize', 25)
     set(gca, 'FontSize', 20); box on; grid on
     subplot(2, 3, 3)
-    plot(Z, yCO2, 'k', 'LineWidth', 2)
-    title('CO2', 'FontSize', 25)
+    plot(Z, yO2, 'k', 'LineWidth', 2)
+    % xlabel('F [-]', 'FontSize', 25)
+    ylabel('$Y_{O2}$ [-]', 'FontSize', 25)
     set(gca, 'FontSize', 20); box on; grid on
     subplot(2, 3, 4)
-    plot(Z, yH2O, 'k', 'LineWidth', 2)
-    title('H2O', 'FontSize', 25)
+    plot(Z, yCO2, 'k', 'LineWidth', 2)
+    % xlabel('F [-]', 'FontSize', 25)
+    ylabel('$Y_{CO2}$ [-]', 'FontSize', 25)
     set(gca, 'FontSize', 20); box on; grid on
     subplot(2, 3, 5)
-    plot(Z, yO2, 'k', 'LineWidth', 2)
-    title('O2', 'FontSize', 25)
+    plot(Z, yH2O, 'k', 'LineWidth', 2)
+    % xlabel('F [-]', 'FontSize', 25)
+    ylabel('$Y_{H2O}$ [-]', 'FontSize', 25)
     set(gca, 'FontSize', 20); box on; grid on
     subplot(2, 3, 6)
     plot(Z, yN2, 'k', 'LineWidth', 2)
-    title('N2', 'FontSize', 25)
+    % xlabel('F [-]', 'FontSize', 25)
+    ylabel('$Y_{N2}$ [-]', 'FontSize', 25)
     set(gca, 'FontSize', 20); box on; grid on
+
     filename = ['Burke_Schumann_CH4_air_state_space.png'];
     saveas(gcf, filename, 'png');
 
