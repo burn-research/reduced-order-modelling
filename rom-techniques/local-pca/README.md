@@ -4,7 +4,7 @@
 
 This is the typical workflow for performing Local PCA.
 
-### Obtain the data set partitioning `idx`
+### 1. Obtain the data set partitioning `idx`
 
 To cluster the data set you can use any technique that you want. The ultimate goal of clustering is to obtain the vector `idx` which classifies every observations to a particular cluster. In this repository three techniques are implemented in the [`clustering`](https://github.com/burn-research/reduced-order-modelling/tree/master/clustering) directory:
 
@@ -13,7 +13,7 @@ To cluster the data set you can use any technique that you want. The ultimate go
 - K-Means clustering
 - Mixture fraction clustering
 
-### Pre-process the data set (center and scale)
+### 2. Pre-process the data set (center and scale)
 
 The LPCA typically starts with pre-processing the raw data set `X_raw` (uncentered and unscaled).
 
@@ -24,7 +24,7 @@ The LPCA typically starts with pre-processing the raw data set `X_raw` (uncenter
 
 The same `centerings` and `scalings` will be used to uncenter and unscale the reconstructed data set within the function `recover_from_lpca()`.
 
-### Divide the original data set observations to clusters according to `idx`
+### 3. Divide the original data set observations to clusters according to `idx`
 
 Once you have a classification of the data set `X` into clusters you can divide the data set observations into clusters according to `idx`:
 
@@ -32,7 +32,7 @@ Once you have a classification of the data set `X` into clusters you can divide 
 [clusters] = get_clusters(X, idx)
 ```
 
-### Find PCs, PC-scores and eigenvalues in each cluster
+### 4. Find PCs, PC-scores and eigenvalues in each cluster
 
 This function performs Principal Component Analysis in each of the local clusters listed in `clusters`:
 
@@ -52,7 +52,7 @@ If defaults are used for all possible variables, the function can only be run wi
 [eigenvectors, scores, eigenvalues, centroids, local_scales] = lpca(clusters)
 ```
 
-### Recover the original data from low-dimensional representations in each cluster
+### 5. Recover the original data from low-dimensional representations in each cluster
 
 In order to reconstruct the original data set `X_raw`, the following function can be used:
 
