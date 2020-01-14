@@ -24,6 +24,8 @@ This is the shape of the data set that is the input for all the functions presen
 
 `Burke_Schumann_solution_CH4_air()`
 
+`add_adaptive_noise_to_data()`
+
 `add_noise_to_data()`
 
 ## Data pre-processing
@@ -42,6 +44,10 @@ This is the shape of the data set that is the input for all the functions presen
 
 #### Finding clusters
 
+`idx_distance_metrics_clustering()`
+
+`idx_feature_assisted_clustering()`
+
 `idx_kmeans()`
 
 `idx_mixture_fraction_bins()`
@@ -50,6 +56,8 @@ This is the shape of the data set that is the input for all the functions presen
 
 #### Auxiliary functions
 
+`degrade_clusters()`
+
 `get_centroids()`
 
 `get_cluster_populations()`
@@ -57,8 +65,6 @@ This is the shape of the data set that is the input for all the functions presen
 `get_clusters()`
 
 `get_partition()`
-
-`degrade_clusters()`
 
 ## Reduced-Order Modelling techniques
 
@@ -84,14 +90,14 @@ This is the shape of the data set that is the input for all the functions presen
 
 #### Goodness-of-fit measurements
 
-`quality_of_reconstruction_measures()`
+`average_correlation()`
 
 `cluster_homogeneity_metrics()`
+
+`quality_of_reconstruction_measures()`
 
 #### Data operations
 
 `orthogonalize_factors()`
-
-`trim_factor_weight_iteratively()`
 
 `trim_factor_weight()`
