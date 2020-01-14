@@ -5,7 +5,8 @@ function [idx] = idx_vector_quantization_pca(X, n_eigs, k, cent_crit, scal_crit,
 % Input:
 % ------------
 % - X
-%     the raw data set.
+%     the raw data set. Centering and scaling will be performed within this
+%     function.
 %
 % - n_eigs
 %     the number of eigenvector (Principal Components) to retain in the VQPCA algorithm.
@@ -31,7 +32,6 @@ function [idx] = idx_vector_quantization_pca(X, n_eigs, k, cent_crit, scal_crit,
 %       a vector specifying division to clusters.
 
 %% idx_vector_quantization()
-
 % Get data dimensions:
 [n_obs, n_vars] = size(X);
 
