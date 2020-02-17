@@ -31,11 +31,6 @@ if ~all( size(X) == size(F) )
     error('Y and F must be the same size');
 end
 
-% Check for NaN:
-tmp = ~or(isnan(X),isnan(F));
-X = X(tmp);
-F = F(tmp);
-
 ydim = size(X,2);
 
 if ydim > 1
@@ -55,11 +50,14 @@ if ydim > 1
 end
 
 % Coefficient of determination:
-r2 = 1 - sum((X(:) - F(:)).^2) / sum(X(:).^2);
-if (r2 < 0)
-    warning('Consider adding a constant term to your model.')
-    r2 = 0;
-end
+r2 = max(0, (1 - sum((X(:) - F(:)).^2) / sum((X(:) - mean(X(:))).^2)));
+
+% Different way of computing:
+% r2 = 1 - sum((X(:) - F(:)).^2) / sum(X(:).^2);
+% if (r2 < 0)
+%     warning('Consider adding a constant term to your model.')
+%     r2 = 0;
+% end
 
 % Normalized Root Mean Squared Error:
 nrmse = sqrt(mean((X(:) - F(:)).^2)) / sqrt(mean(X.^2));
