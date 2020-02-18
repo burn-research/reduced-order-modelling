@@ -25,6 +25,10 @@ function [order] = order_of_importance_of_variables(X, metric)
 %         option for metric to judge the imporance.
 %         By default the importance will be established based on the
 %         maximum achieved observation.
+%         Available metrics:
+%
+%         1     Max
+%         2     Mean
 %
 % Output:
 % ------------
@@ -44,6 +48,11 @@ if metric == 1
 
     maximum_values = max(X, [], 1);
     [~, order] = sort(maximum_values, 'descend');
+    
+elseif metric == 2
+    
+    mean_values = mean(X);
+    [~, order] = sort(mean_values, 'descend');
     
 end
 
