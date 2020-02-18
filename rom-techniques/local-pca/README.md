@@ -1,17 +1,23 @@
 # Local Principal Component Analysis (LPCA)
 
+The figure below presents the difference between applying PCA globally vs. locally.
+
+<p align="center">
+  <img src="https://github.com/burn-research/reduced-order-modelling/raw/master/documentation/global-vs-local-pca-subplot.png" width="300">
+</p>
+
 ## Local PCA step-by-step
 
 This is the typical workflow for performing Local PCA.
 
 ### 1. Obtain the data set partitioning `idx`
 
-To cluster the data set you can use any technique that you want. The ultimate goal of clustering is to obtain the vector `idx` which classifies every observations to a particular cluster. In this repository three techniques are implemented in the [`clustering`](https://github.com/burn-research/reduced-order-modelling/tree/master/clustering) directory:
+To cluster the data set you can use any technique that you want. The ultimate goal of clustering is to obtain the vector `idx` which classifies every observations to a particular cluster. In this repository few techniques are implemented in the [`clustering`](https://github.com/burn-research/reduced-order-modelling/tree/master/clustering) directory:
 
 - Vector Quantization PCA (VQPCA)
-- Feature Assisted Clustering (FAC)
-- K-Means clustering
 - Mixture fraction clustering
+- K-Means clustering
+- Feature Assisted Clustering (FAC)
 
 ### 2. Pre-process the data set (center and scale)
 
