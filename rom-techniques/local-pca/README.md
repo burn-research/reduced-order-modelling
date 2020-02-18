@@ -3,7 +3,7 @@
 The figure below presents the difference between applying PCA globally vs. locally.
 
 <p align="center">
-  <img src="https://github.com/burn-research/reduced-order-modelling/raw/master/documentation/global-vs-local-pca-subplot.png" width="300">
+  <img src="https://github.com/burn-research/reduced-order-modelling/raw/master/documentation/global-vs-local-pca-subplot.png" width="600">
 </p>
 
 ## Local PCA step-by-step
