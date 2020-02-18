@@ -11,7 +11,7 @@ idx = [1,1,1,1,2,2,2,2,2,3,3]
 The above vector has the following interpretation: the first four observations belong to cluster 1, the following five observations belong to cluster 2 and the last two observations belong to cluster 3.
 
 <p align="center">
-  <img src="https://github.com/burn-research/reduced-order-modelling/raw/master/documentation/idx-X.png" width="300">
+  <img src="https://github.com/burn-research/reduced-order-modelling/raw/master/documentation/idx-X.png" width="600">
 </p>
 
 ## Clustering functions descriptions
