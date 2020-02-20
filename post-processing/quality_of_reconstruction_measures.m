@@ -6,14 +6,13 @@ function [r2, nrmse, mae, rmse] = quality_of_reconstruction_measures(X, F, r2_co
 % Input:
 % ------------
 % - X
-%     the original data set.
+%     the original data set. Variables need to be stored in consecutive columns.
 %
 % - F
-%     a model fit to the original data set.
+%     a model fit to the original data set. Variables need to be stored in consecutive columns.
 %
 % - r2_constant
-%     optional Boolean specifying whether R2 computation
-%     according to constant term in the model:
+%     optional Boolean specifying whether R2 computation will be according to constant term in the model:
 %     https://web.maths.unsw.edu.au/~adelle/Garvan/Assays/GoodnessOfFit.html
 %     If this value is not specified or set to false, a traditional R2 computation is performed.
 %
@@ -61,7 +60,7 @@ end
 
 % Coefficient of determination:
 if r2_constant == false
-  r2 = (1 - sum((X(:) - F(:)).^2) / sum((X(:) - mean(X(:))).^2));
+  r2 = 1 - sum((X(:) - F(:)).^2) / sum((X(:) - mean(X(:))).^2);
 else
   % Computation according to constant term in the model:
   r2 = 1 - sum((X(:) - F(:)).^2) / sum(X(:).^2);
