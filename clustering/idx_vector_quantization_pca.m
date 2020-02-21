@@ -1,4 +1,4 @@
-function [idx] = idx_vector_quantization_pca(X, n_eigs, k, cent_crit, scal_crit, idx_0)
+function [idx, rec_err_min] = idx_vector_quantization_pca(X, n_eigs, k, cent_crit, scal_crit, idx_0)
 % This function partitions the data into `k` clusters according to
 % Vector Quantization Principal Component Analysis (VQPCA) algorithm.
 %
@@ -30,6 +30,10 @@ function [idx] = idx_vector_quantization_pca(X, n_eigs, k, cent_crit, scal_crit,
 % ------------
 % - idx
 %       a vector specifying division to clusters.
+%
+% - rec_err_min
+%       are the minimum reconstruction error of a particular observation from any cluster.
+%       It is used as a metric to assign points to a cluster.
 
 %% idx_vector_quantization()
 % Get data dimensions:
@@ -159,11 +163,12 @@ while ((convergence == 0) && (iter < iter_max))
         fprintf('\n Cluster %d dimension increased to %d \n', j,  n_eigs);
     end
 
-    % Judge the convergence:
+    % Judge the convergence of errors:
     if (eps_rec_var < r_tol)
         eps_rec_convergence = 1;
     end
 
+    % Judge the convergence of centroids:
     if (size(C) == size(C_new))
 
         C_var = abs((C_new - C) ./ (C_new + a_tol));
@@ -186,7 +191,6 @@ while ((convergence == 0) && (iter < iter_max))
 
     % Initialization of cell arrays:
     eigvec = cell(k, 1);
-    U_scores = cell(k, 1);
     gamma = cell(k, 1);
 
     % Perform PCA in local clusters:
@@ -195,7 +199,6 @@ while ((convergence == 0) && (iter < iter_max))
         [centered_scaled_local_X, gamma{j}] = scale(centered_scaled_local_X, nz_X_k{j}, 0); % don't scale in local clusters
         [modes] = pca(centered_scaled_local_X, 'Centered', false, 'Algorithm', 'svd');
         eigvec{j} = modes(:,1:n_eigs);
-        u_scores{j} = centered_scaled_local_X * eigvec{j};
     end
 
     % Increment the iteration counter:
