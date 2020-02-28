@@ -10,7 +10,7 @@ The general methodology for the usage of functions in this repository is present
 
 # Functions
 
-Each of the boxes present in **Figure 1** contains its functions for performing specific tasks. You can explore the functions and documentation for each of the boxes by clicking the relevant section below:
+Each of the boxes present in **Figure 1.** contains its functions for performing specific tasks. You can explore the functions and documentation for each of the boxes by clicking the relevant section below:
 
 ### [`Data generation`](https://github.com/burn-research/reduced-order-modelling/tree/master/data-generation)
 
