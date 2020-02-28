@@ -2,7 +2,7 @@
 
 The main methods that are implemented in this repository are presented below.
 
-The techniques presented here can be applied globally (on the entire data set at once) or locally (on portions of the entire data set). In order to use the local variants, data set has to be first partitioned into local clusters, for instance using any of the [clustering](https://github.com/burn-research/reduced-order-modelling/tree/master/clustering) techniques available in this repository.
+The techniques implemented here can be applied *globally* (on the entire data set at once) or *locally* (on portions of the entire data set). In order to use the local variants, data set has to be first partitioned into local clusters, for instance using any of the [clustering](https://github.com/burn-research/reduced-order-modelling/tree/master/clustering) techniques available in this repository.
 
 ## Principal Component Analysis
 
