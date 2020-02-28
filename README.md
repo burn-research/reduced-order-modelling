@@ -1,8 +1,10 @@
 # ![Logo](documentation/burn_logo.png?thumbnail) Reduced-Order Modelling for combustion data sets
 
-This is a collection of Matlab tools for performing a general Reduced-Order Modelling on data sets. Many of the functions presented here can be used universally on data sets coming from various disciplines but the main focus was to apply the techniques to combustion data sets and hence some methods will be combustion-specific.
+This is a collection of Matlab tools for performing a general Reduced-Order Modelling on data sets.
 
-The general methodology for the usage of functions in this repository is presented below:
+Many of the functions presented here can be used universally on data sets coming from various disciplines but the main focus was to apply the techniques to combustion data sets and hence some methods are combustion-specific.
+
+The general workflow for the usage of functions in this repository is presented below:
 
 ![Screenshot](documentation/rom-methodology.png)
 
@@ -22,7 +24,7 @@ Each of the boxes present in **Figure 1.** contains its functions for performing
 
 ### [`Data post-processing`](https://github.com/burn-research/reduced-order-modelling/tree/master/post-processing)
 
-# General notions that apply across the functions in this repository
+## General notions that apply across the functions in this repository
 
 Whenever we refer to a raw data set we mean a data set that is uncentered and unscaled.
 
