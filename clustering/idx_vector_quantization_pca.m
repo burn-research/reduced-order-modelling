@@ -110,13 +110,14 @@ while ((convergence == 0) && (iter < iter_max))
 
         rec_err_os = (scal_X - C_mat - (scal_X - C_mat) * D^-1 * eigvec{j} * eigvec{j}' * D);
         sq_rec_err(:, j) = sum(rec_err_os.^2, 2);
-        var_X(:, j) = mean(var( (scal_X - C_mat) * D^-1 * eigvec{j},0,2), 2);
+%         var_X(:, j) = mean(var( (scal_X - C_mat) * D^-1 * eigvec{j},0,2), 2);
 
     end
 
     % Assign the observations to clusters based on the minimum reconstruction error:
-    sq_rec_err_var = sq_rec_err .* var_X;
-    [rec_err_min, idx] = min(sq_rec_err_var, [], 2);
+%     sq_rec_err_var = sq_rec_err .* var_X;
+%     [rec_err_min, idx] = min(sq_rec_err_var, [], 2);
+    [rec_err_min, idx] = min(sq_rec_err, [], 2);
     rec_err_min_rel = rec_err_min;
 
     % Evaluate the global mean reconstruction error:
