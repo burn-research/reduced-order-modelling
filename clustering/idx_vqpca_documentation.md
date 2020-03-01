@@ -1,4 +1,4 @@
-# Explanation of the elements in the VQPCA algorithm
+# Explanation of the VQPCA algorithm
 
 ## Centroids initialization
 
@@ -14,7 +14,7 @@ The uniform `idx_0` initialization thus assumes that the centroid for every vari
 
 ### Initialization from user-supplied `idx_0`
 
-The user can supply the `idx_0` as one of the parameters and the centroids will be initialized for each cluster as the mean of each variable in that cluster. The function [`get_centroids`](https://github.com/burn-research/reduced-order-modelling/blob/master/clustering/get_clusters.m) is used in that case to obtain the initial cluster centroids.
+The user can supply the `idx_0` as one of the parameters and the centroids will be initialized for each cluster as the mean of each variable in that cluster. The function [`get_centroids`](https://github.com/burn-research/reduced-order-modelling/blob/master/clustering/get_centroids.m) is used in that case to obtain the initial cluster centroids.
 
 ## Loop
 
@@ -22,7 +22,7 @@ After initializing all necessary parameter the function loops until convergence 
 
 Explanation of variables computed inside the loop:
 
-`sq_rec_err` - contains reconstruction error of each observation if it was assigned to a particular cluster, size `[n_obs, k]`
+`sq_rec_err` - contains reconstruction error of each observation as if it was assigned to a particular cluster, size `[n_obs, k]`
 
 `C_mat` - for each `j=1:1:k` contains a repeated centroid to form a matrix size `[n_obs, n_vars]`
 
