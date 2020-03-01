@@ -24,8 +24,8 @@ After initializing all necessary parameters, the function loops until convergenc
 
 Explanation of variables computed inside the loop:
 
-`sq_rec_err` - contains reconstruction error of each observation as if it was assigned to a particular cluster, size `[n_obs, k]`
+- `sq_rec_err` - contains reconstruction error of each observation as if it was assigned to a particular cluster, size `[n_obs, k]`
 
-`C_mat` - for each `j=1:1:k` contains a repeated centroid to form a matrix size `[n_obs, n_vars]`
+- `C_mat` - for each `j=1:1:k` contains a repeated centroid to form a matrix size `[n_obs, n_vars]`
 
-`[rec_err_min, idx] = min(sq_rec_err, [], 2);` - finds the value and the column-index of the minimum reconstruction error. The index `idx` tells us which cluster the observation should be assigned to to have the minimum reconstruction error. `rec_err_min` is thus also a metric that classifies points and it is returned by the [`idx_vector_quantization_pca`](https://github.com/burn-research/reduced-order-modelling/blob/master/clustering/idx_vector_quantization_pca.m) function.
+- `[rec_err_min, idx] = min(sq_rec_err, [], 2);` - finds the value and the column-index of the minimum reconstruction error. The index `idx` tells us which cluster the observation should be assigned to to have the minimum reconstruction error. `rec_err_min` is thus also a metric that classifies points and it is returned by the [`idx_vector_quantization_pca`](https://github.com/burn-research/reduced-order-modelling/blob/master/clustering/idx_vector_quantization_pca.m) function.
