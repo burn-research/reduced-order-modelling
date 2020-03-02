@@ -124,7 +124,7 @@ while ((convergence == 0) && (iter < iter_max))
     eps_rec_new = mean(rec_err_min_rel);
 
     % Partition the data into clusters:
-    [nz_X_k, nz_idx_clust, k] = get_partition(scal_X, idx, k);
+    [nz_X_k, nz_idx_clust, k] = get_partition(scal_X, idx);
     fprintf('\nClusters dimension \n');
     disp(nz_X_k);
 
