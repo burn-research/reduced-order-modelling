@@ -1,4 +1,4 @@
-function [clusters, clusters_idx, k_new] = get_partition(X, idx, k)
+function [clusters, clusters_idx, k_new] = get_partition(X, idx)
 % This function partitions the dataset to clusters given by `idx` vector. It returns
 % a cell array of data set divided into clusters and a cell array of indices of original observations
 % diveded into clusters. If less than `n_vars` observations are assigned to a particular cluster,
@@ -28,6 +28,8 @@ function [clusters, clusters_idx, k_new] = get_partition(X, idx, k)
 %% get_partition()
 [n_obs, n_vars] = size(X);
 
+k = numel(unique(idx));
+
 idx_clust = cell(k, 1);
 n_points = zeros(k, 1);
 clusters = cell(k, 1);
@@ -39,12 +41,12 @@ for j = 1:1:k
     n_points(j) = size(idx_clust{j}, 1);
 
     if (n_points(j) < n_vars)
-        fprintf('\nNo points in the cluster n. %d, cluster removed \n', j);
+        fprintf('\nToo few points in cluster k.%d, cluster will be removed.\n', j);
     end
 
 end
 
-nz_idx = find(n_points > n_vars);
+nz_idx = find(n_points >= n_vars);
 k_new = size(nz_idx, 1);
 
 for j = 1:1:k_new
