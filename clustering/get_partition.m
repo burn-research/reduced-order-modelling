@@ -41,7 +41,7 @@ for j = 1:1:k
     n_points(j) = size(idx_clust{j}, 1);
 
     if (n_points(j) < n_vars)
-        fprintf('\nToo few points in cluster k.%d, cluster will be removed.\n', j);
+        fprintf('\nToo few points (%d) in cluster k.%d, cluster will be removed.\n', n_points(j), j);
     end
 
 end
