@@ -28,6 +28,12 @@ function [clusters, clusters_idx, k_new] = get_partition(X, idx)
 %% get_partition()
 [n_obs, n_vars] = size(X);
 
+% Remove empty clusters from indexing:
+if max(idx) ~= numel(unique(idx))
+    idx = degrade_clusters(idx);
+    fprintf('\nRemoved empty clusters.\n');
+end
+
 k = numel(unique(idx));
 
 idx_clust = cell(k, 1);
