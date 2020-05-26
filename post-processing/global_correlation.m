@@ -16,7 +16,7 @@ function [correlation] = global_correlation(var_1, var_2)
 
 %% global_correlation()
 % Checks:
-if len(var_1) ~= len(var_2)
+if length(var_1) ~= length(var_2)
     error('The number of elements is different in both variables.');
 end
 
