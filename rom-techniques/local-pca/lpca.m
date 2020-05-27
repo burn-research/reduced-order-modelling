@@ -1,5 +1,6 @@
 function [eigenvectors, scores, eigenvalues, centroids, local_scales] = lpca(clusters, q, cent_crit, scal_crit)
-% This function performs Principal Component Analysis in each of the local clusters.
+% This function performs Principal Component Analysis in each of the local
+% clusters.
 %
 % Input:
 % ------------
@@ -17,7 +18,9 @@ function [eigenvectors, scores, eigenvalues, centroids, local_scales] = lpca(clu
 %
 % - cent_crit
 %           centering criteria as per function `center()`. Data samples from each cluster
-%           will be centered with this centering criteria.
+%           will be centered with this centering criteria. If the centering
+%           is not given, data samples within the clusters will be centered
+%           by mean.
 %
 % - scal_crit
 %           scaling criteria as per function `scale()`. Data samples from each cluster
