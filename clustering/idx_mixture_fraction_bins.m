@@ -1,7 +1,8 @@
 function [idx] = idx_mixture_fraction_bins(Z, k, Z_stoich)
-% This function partitions the data into `k` clusters (bins) according to the mixture fraction space `Z`.
-% Bins intervals are found starting from the first one which divides the `Z` space
-% into two parts at the stoichiometric mixture fraction `Z_stoich`.
+% This function partitions data into `k` clusters (bins) according to bins
+% of the mixture fraction vector `Z`.
+% Bin intervals are found starting from the first one which divides the
+%`Z` space into two parts at the stoichiometric mixture fraction `Z_stoich`.
 %
 %      min_Z                      Z_stoich                          max_Z
 %        |-------------|-------------|----------|----------|----------|
@@ -16,7 +17,8 @@ function [idx] = idx_mixture_fraction_bins(Z, k, Z_stoich)
 %       number of bins (clusters) to partition the mixture fraction space.
 %
 % - Z_stoich
-%       stoichiometric mixture fraction. If Z_stoich is not specified, equal length intervals are created.
+%       stoichiometric mixture fraction. If Z_stoich is not specified,
+%       equal length intervals are created.
 %
 %       Selected stoichiometric mixture fractions:
 %
