@@ -1,4 +1,4 @@
-function [idx, eigvec, rec_err_min] = idx_vector_quantization_pca(X, n_eigs, k, cent_crit, scal_crit, idx_0, center_outside, scale_outside, center_inside, scale_inside)
+function [idx, eigvec, rec_err_min] = idx_vector_quantization_pca(X, n_eigs, k, cent_crit, scal_crit, center_outside, scale_outside, center_inside, scale_inside, idx_0)
 % This function partitions the data into `k` clusters according to
 % Vector Quantization Principal Component Analysis (VQPCA) algorithm.
 %
@@ -22,10 +22,6 @@ function [idx, eigvec, rec_err_min] = idx_vector_quantization_pca(X, n_eigs, k, 
 % - scal_crit
 %     scaling criterion (as per `scale()` function).
 %
-% - idx_0
-%     a vector specifying division to clusters that will initialize the cluster centroids.
-%     If not provided, a uniform initialization of cluster centroids is performed.
-%
 % - center_outside
 %     boolean specifying if the data set should be centered before the algorithm starts iterating.
 %
@@ -37,6 +33,10 @@ function [idx, eigvec, rec_err_min] = idx_vector_quantization_pca(X, n_eigs, k, 
 %
 % - scale_inside
 %     boolean specifying if the local data set should be scaled at each iteration.
+%
+% - idx_0
+%     a vector specifying division to clusters that will initialize the cluster centroids.
+%     If not provided, a uniform initialization of cluster centroids is performed.
 %
 % Output:
 % ------------
