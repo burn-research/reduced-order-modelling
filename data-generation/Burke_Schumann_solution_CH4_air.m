@@ -67,7 +67,7 @@ Cp = 1.4*1000; % heat capacity [J/kg-K]
 s = 2*MW_O2/MW_CH4;
 
 % Stoichiometric mixture fraction:
-Z_st = yO2_2 / (s*yCH4_1 + yO2_2);
+Z_st = yO2_2 / (s*yCH4_1 + yO2_2)
 
 % Mixture fraction vector:
 Z = linspace(0, 1, n_points)';
