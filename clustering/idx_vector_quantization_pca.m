@@ -1,4 +1,4 @@
-function [idx, rec_err_min] = idx_vector_quantization_pca(X, n_eigs, k, cent_crit, scal_crit, idx_0)
+function [idx, eigvec, rec_err_min] = idx_vector_quantization_pca(X, n_eigs, k, cent_crit, scal_crit, idx_0, center_outside, scale_outside, center_inside, scale_inside)
 % This function partitions the data into `k` clusters according to
 % Vector Quantization Principal Component Analysis (VQPCA) algorithm.
 %
@@ -25,6 +25,18 @@ function [idx, rec_err_min] = idx_vector_quantization_pca(X, n_eigs, k, cent_cri
 % - idx_0
 %     a vector specifying division to clusters that will initialize the cluster centroids.
 %     If not provided, a uniform initialization of cluster centroids is performed.
+%
+% - center_outside
+%     boolean specifying if the data set should be centered before the algorithm starts iterating.
+%
+% - scale_outside
+%     boolean specifying if the data set should be scaled before the algorithm starts iterating.
+%
+% - center_inside
+%     boolean specifying if the local data set should be centered at each iteration.
+%
+% - scale_inside
+%     boolean specifying if the local data set should be scaled at each iteration.
 %
 % Output:
 % ------------
@@ -69,8 +81,17 @@ for j = 1:1:k
 end
 
 % Center and scale the data:
-[scal_X, ~] = center(X, cent_crit);
-[scal_X, ~] = scale(scal_X, X, scal_crit);
+if center_outside
+    [scal_X, ~] = center(X, cent_crit);
+else
+    [scal_X, ~] = center(X, 0);
+end
+
+if scale_outside
+    [scal_X, ~] = scale(scal_X, X, scal_crit);
+else
+    [scal_X, ~] = scale(scal_X, X, 0);
+end
 
 % Initialization of cluster centroids:
 if exist('idx_0', 'var')
@@ -195,8 +216,19 @@ while ((convergence == 0) && (iter < iter_max))
 
     % Perform PCA in local clusters:
     for j = 1:1:k
-        [centered_scaled_local_X, ~] = center(nz_X_k{j}, cent_crit);
-        [centered_scaled_local_X, gamma{j}] = scale(centered_scaled_local_X, nz_X_k{j}, 0); % don't scale in local clusters
+        
+        if center_inside
+            [centered_scaled_local_X, ~] = center(nz_X_k{j}, cent_crit);
+        else
+            [centered_scaled_local_X, ~] = center(nz_X_k{j}, 0);
+        end
+        
+        if scale_inside
+            [centered_scaled_local_X, gamma{j}] = scale(centered_scaled_local_X, nz_X_k{j}, scal_crit);
+        else
+            [centered_scaled_local_X, gamma{j}] = scale(centered_scaled_local_X, nz_X_k{j}, 0);
+        end
+        
         [modes] = pca(centered_scaled_local_X, 'Centered', false, 'Algorithm', 'svd');
         eigvec{j} = modes(:,1:n_eigs);
     end
