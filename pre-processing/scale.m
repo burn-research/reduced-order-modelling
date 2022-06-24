@@ -95,6 +95,8 @@ if ~exist('user_supplied_scaling', 'var') || isempty(user_supplied_scaling)
         case 7
             % KURTOSIS-1
             kurt_value = kurtosis(uncentered_data);
+            std_value = std(uncentered_data, 1, 1);
+            mean_value = mean(uncentered_data, 1);
             vast_2 = std_value.^2 .* kurt_value.^2 ./ (mean_value + a_tol);
             scalings = vast_2;
             scaling_name_str = 'std_kurt_1';
