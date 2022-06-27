@@ -6,16 +6,14 @@ function [idx_Y] = idx_vqpca_based_on_centroids(X, idx_X, Y, n_eigs, cent_crit, 
 % Get the target data dimensions:
 [n_obs_Y, n_vars_Y] = size(Y);
 
+if n_vars_X ~= n_vars_Y
+    error('The number of variables in the training and target data has to be the same.')
+end
+%% Compute local PCA on the training data
+
 % Center and scale the training data:
 [scal_X, centers_X] = center(X, cent_crit);
 [scal_X, scales_X] = scale(scal_X, X, scal_crit);
-
-% Apply the same centering and scaling to the target data:
-[scal_Y, ~, ~] = center(Y, cent_crit, centers_X);
-[scal_Y, ~, ~] = scale(scal_Y, Y, scal_crit, scales_X);
-
-% Compute the centroids based on the existing VQPCA clustering solution:
-[C] = get_centroids(scal_X, idx_X);
 
 % Compute the training data partitoning based on the existing VQPCA clustering solution:
 [nz_X_k, ~, k] = get_partition(scal_X, idx_X);
@@ -30,6 +28,15 @@ for j = 1:1:k
     [modes] = pca(centered_scaled_local_X, 'Centered', false, 'Algorithm', 'svd');
     eigvec{j} = modes(:,1:n_eigs);
 end
+
+%% Apply the existing local PCA results to the target data
+
+% Apply the same centering and scaling to the target data:
+[scal_Y, ~, ~] = center(Y, cent_crit, centers_X);
+[scal_Y, ~, ~] = scale(scal_Y, Y, scal_crit, scales_X);
+
+% Compute the centroids based on the existing VQPCA clustering solution:
+[C] = get_centroids(scal_X, idx_X);
 
 % Initialize the reconstruction error matrix:
 sq_rec_err = zeros(n_obs_Y, k);
