@@ -122,6 +122,7 @@ if ~exist('user_supplied_scaling', 'var') || isempty(user_supplied_scaling)
 else
     % Use user supplied scaling:
     scalings = user_supplied_scaling;
+    scaling_name_str = 'custom';
 end
 
 % Scale the data set:

@@ -72,7 +72,8 @@ if ~exist('user_supplied_centering', 'var') || isempty(user_supplied_centering)
     end
 else
   % Use user supplied centering:
-  centerings = user_supplied_centerings;
+  centering_name_str = 'custom';
+  centerings = user_supplied_centering;
   centerings_matrix = repmat(centerings, n_obs, 1);
 end
 
